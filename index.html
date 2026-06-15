@@ -25,6 +25,9 @@ body{background:var(--void);color:var(--ink);font-family:'Inter',-apple-system,s
 ::selection{background:rgba(255,255,255,.15);color:#fff}
 .mono{font-family:'JetBrains Mono',monospace}
 a{color:inherit}
+/* Fondo cinematográfico fijo (red de agentes animada) — patrón bgvideo/bgtint/scanfixed */
+.bgvideo{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none}
+.bgtint{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 90% at 70% 10%, rgba(127,119,221,.12), transparent 55%), rgba(14,14,14,.55)}
 .scan{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.35;background:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.25) 2px 3px)}
 .rail{position:fixed;top:0;bottom:0;width:38px;display:flex;align-items:center;justify-content:center;z-index:40;pointer-events:none}
 .rail.l{left:0}.rail.r{right:0}
@@ -70,7 +73,7 @@ h1 .s{color:var(--mut)}
 .fade{opacity:0;animation:fade .6s forwards}
 @keyframes fade{to{opacity:1}}
 
-section{padding:90px 0;border-top:1px solid var(--line-soft)}
+section{padding:90px 0;border-top:1px solid var(--line-soft);background:var(--void);position:relative}
 h2{font-family:'Space Grotesk';font-weight:600;font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-.02em;color:var(--white);margin-bottom:18px}
 .section-lede{font-size:17px;line-height:1.6;color:var(--mut);max-width:620px}
 .center{text-align:center}.center .section-lede{margin:0 auto}
@@ -136,6 +139,8 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 </style>
 </head>
 <body>
+<canvas class="bgvideo" id="bg"></canvas>
+<div class="bgtint"></div>
 <div class="scan"></div>
 <div class="rail l"><span>Perfect Paradox · NI739317</span></div>
 <div class="rail r"><span>On-device · BYOK · One-time</span></div>
@@ -360,6 +365,50 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
     if (READY) { Paddle.Checkout.open({ items:[{ priceId:id, quantity:1 }] }); }
     else { window.location.href = 'mailto:info@perfectparadox.co.uk?subject=Buy%20AG3NT'; }
   }
+</script>
+<script>
+  // Fondo "video": red de agentes que se conectan (el foso del producto, en vivo).
+  (function(){
+    const c = document.getElementById('bg'), x = c.getContext('2d');
+    const COLORS = ['#7F77DD','#1D9E75','#D85A30','#D4537E','#BA7517','#85B7EB'];
+    let w,h,nodes,dpr;
+    function resize(){
+      dpr = Math.min(window.devicePixelRatio||1, 2);
+      w = c.width = innerWidth*dpr; h = c.height = innerHeight*dpr;
+      c.style.width = innerWidth+'px'; c.style.height = innerHeight+'px';
+      const n = Math.min(46, Math.floor(innerWidth/34));
+      nodes = Array.from({length:n}, ()=>({
+        x:Math.random()*w, y:Math.random()*h,
+        vx:(Math.random()-.5)*.18*dpr, vy:(Math.random()-.5)*.18*dpr,
+        r:(Math.random()*1.6+1.1)*dpr, col:COLORS[(Math.random()*COLORS.length)|0]
+      }));
+    }
+    function frame(){
+      x.clearRect(0,0,w,h);
+      const R = 150*dpr;
+      for(let i=0;i<nodes.length;i++){
+        const a=nodes[i];
+        a.x+=a.vx; a.y+=a.vy;
+        if(a.x<0||a.x>w)a.vx*=-1; if(a.y<0||a.y>h)a.vy*=-1;
+        for(let j=i+1;j<nodes.length;j++){
+          const b=nodes[j], dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
+          if(d<R){
+            x.globalAlpha=(1-d/R)*.22;
+            x.strokeStyle=a.col; x.lineWidth=dpr*.6;
+            x.beginPath(); x.moveTo(a.x,a.y); x.lineTo(b.x,b.y); x.stroke();
+          }
+        }
+      }
+      for(const a of nodes){
+        x.globalAlpha=.85; x.fillStyle=a.col;
+        x.beginPath(); x.arc(a.x,a.y,a.r,0,7); x.fill();
+      }
+      x.globalAlpha=1;
+      requestAnimationFrame(frame);
+    }
+    addEventListener('resize', resize);
+    resize(); frame();
+  })();
 </script>
 </body>
 </html>
