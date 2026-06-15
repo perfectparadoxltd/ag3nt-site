@@ -390,11 +390,11 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
       dpr = Math.min(window.devicePixelRatio||1, 2);
       w = c.width = innerWidth*dpr; h = c.height = innerHeight*dpr;
       c.style.width = innerWidth+'px'; c.style.height = innerHeight+'px';
-      const n = Math.min(46, Math.floor(innerWidth/34));
+      const n = Math.min(130, Math.floor(innerWidth/14));
       nodes = Array.from({length:n}, ()=>({
         x:Math.random()*w, y:Math.random()*h,
         vx:(Math.random()-.5)*.18*dpr, vy:(Math.random()-.5)*.18*dpr,
-        r:(Math.random()*1.6+1.1)*dpr, col:COLORS[(Math.random()*COLORS.length)|0]
+        r:(Math.random()*1.7+1.2)*dpr, col:COLORS[(Math.random()*COLORS.length)|0]
       }));
     }
     addEventListener('mousemove', e=>{ mouse.x=e.clientX*dpr; mouse.y=e.clientY*dpr; });
@@ -402,7 +402,7 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
     function frame(){
       t+=0.01;
       x.clearRect(0,0,w,h);
-      const R = 150*dpr, MR = 200*dpr;
+      const R = 100*dpr, MR = 200*dpr;
       // pulso sutil de densidad (el fondo "respira")
       const breathe = 0.18 + Math.sin(t)*0.05;
       for(let i=0;i<nodes.length;i++){
