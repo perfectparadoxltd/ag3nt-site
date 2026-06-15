@@ -370,7 +370,11 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
   // Cuenta Paddle de Perfect Paradox (mismo token que las demás apps).
   // PRICE IDs de AG3NT: Diego los crea en Paddle y los pega aquí.
   const PADDLE_TOKEN = 'live_0c45d27a78741d1285949859fcc';
-  const PRICES = { basic: 'PRICE_ID_AG3NT_BASIC', pro: 'PRICE_ID_AG3NT_PRO' };
+  const PRICES = {
+    basic:   'pri_01kv6f36emrnmd4v8kzvem8rz8',
+    pro:     'pri_01kv6fbt1ypegvy555hwm9rj85',
+    upgrade: 'pri_01kv6fs33tkcvdja2xwxswt0mb', // solo desde la app (botón Pasar a Pro)
+  };
   const READY = window.Paddle && !PRICES.basic.includes('PRICE_ID');
   try { if (window.Paddle) Paddle.Initialize({ token: PADDLE_TOKEN }); } catch (e) {}
   function openCheckout(tier){
