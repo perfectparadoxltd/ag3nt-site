@@ -4,18 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AG3NT — Your AI team, on your Mac. Private. One-time.</title>
-<meta name="description" content="AG3NT is the first on-device AI team for your Mac, where specialist assistants actually coordinate with each other. Persistent memory, scheduled work, bring-your-own-key. Private, no telemetry, one-time purchase. macOS 14+.">
+<meta name="description" content="AG3NT is the first on-device AI team for your Mac, where specialist assistants coordinate with each other, remember your business, and work on their own. Bring your own key. Private, no telemetry, one-time purchase. macOS 14+.">
 <meta property="og:title" content="AG3NT — Your AI team, on your Mac">
-<meta property="og:description" content="Specialist AI assistants that coordinate, remember, and work on their own — entirely on your Mac. Private. One-time purchase. BYOK.">
+<meta property="og:description" content="Specialist AI assistants that coordinate, remember, and work on their own — entirely on your Mac. Private. One-time. BYOK.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://ag3nt.perfectparadox.co.uk/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --void:#0E0E0E; --bg:#131313; --low:#1c1b1b; --vessel:#20201F; --high:#353535;
-  --ink:#E5E2E1; --white:#FFFFFF; --mut:#919191; --line:rgba(71,71,71,.4); --line-soft:rgba(71,71,71,.22);
+  --void:#0E0E0E; --bg:#131313; --vessel:#20201F; --high:#353535;
+  --ink:#E5E2E1; --white:#FFFFFF; --mut:#919191; --line:rgba(71,71,71,.4); --line-soft:rgba(71,71,71,.2);
   --mk:#7F77DD; --ct:#1D9E75; --sp:#D85A30; --em:#D4537E; --in:#BA7517;
 }
 *{margin:0;padding:0;box-sizing:border-box;border-radius:0}
@@ -23,242 +24,342 @@ html{scroll-behavior:smooth}
 body{background:var(--void);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 ::selection{background:rgba(255,255,255,.15);color:#fff}
 .mono{font-family:'JetBrains Mono',monospace}
-.disp{font-family:'Space Grotesk',sans-serif}
-.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
 a{color:inherit}
+.scan{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.35;background:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.25) 2px 3px)}
+.rail{position:fixed;top:0;bottom:0;width:38px;display:flex;align-items:center;justify-content:center;z-index:40;pointer-events:none}
+.rail.l{left:0}.rail.r{right:0}
+.rail span{writing-mode:vertical-rl;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--mut);opacity:.6}
+.rail.l span{transform:rotate(180deg)}
+.page{position:relative;z-index:2}
+.wrap{max-width:1000px;margin:0 auto;padding:0 40px}
 
-/* nav */
-nav{position:fixed;top:0;left:0;right:0;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;z-index:50;background:rgba(14,14,14,.7);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+nav{position:fixed;top:0;left:0;right:0;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;z-index:50;background:rgba(14,14,14,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
 nav .brand{font-family:'Space Grotesk';font-weight:600;font-size:18px;letter-spacing:.04em}
 nav .links{display:flex;gap:26px}
-nav .links a{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);text-decoration:none;transition:color .3s}
+nav .links a{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);text-decoration:none;transition:.3s}
 nav .links a:hover{color:var(--white)}
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 20px;background:var(--white);color:#0E0E0E;text-decoration:none;border:1px solid var(--white);transition:all .3s cubic-bezier(.22,1,.36,1)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 20px;background:var(--white);color:#0E0E0E;text-decoration:none;border:1px solid var(--white);cursor:pointer;transition:all .3s cubic-bezier(.22,1,.36,1)}
 .btn:hover{background:transparent;color:var(--white)}
 .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--mut)}
 .btn-ghost:hover{border-color:var(--white);color:var(--white)}
+.sec-label{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin-bottom:18px}
 
 /* hero */
-.hero{padding:160px 0 90px;border-bottom:1px solid var(--line-soft)}
-.tag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);border:1px solid var(--line);padding:6px 12px;margin-bottom:28px}
+.hero{padding:150px 0 80px;text-align:center}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);border:1px solid var(--line);padding:6px 12px;margin-bottom:30px}
 .tag b{color:var(--ink);font-weight:500}
-h1{font-family:'Space Grotesk';font-weight:600;font-size:clamp(40px,6.5vw,76px);line-height:1.02;letter-spacing:-.02em;color:var(--white);margin-bottom:24px}
-h1 .sub{color:var(--mut)}
-.lede{font-size:19px;line-height:1.6;color:var(--ink);max-width:620px;margin-bottom:36px}
-.cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.cta-note{font-family:'JetBrains Mono';font-size:11px;color:var(--mut);letter-spacing:.05em}
+h1{font-family:'Space Grotesk';font-weight:600;font-size:clamp(44px,7vw,82px);line-height:1.0;letter-spacing:-.02em;color:var(--white);margin-bottom:24px}
+h1 .s{color:var(--mut)}
+.lede{font-size:19px;line-height:1.6;color:var(--ink);max-width:600px;margin:0 auto 34px}
+.cta-row{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
+.cta-note{font-family:'JetBrains Mono';font-size:11px;color:var(--mut);margin-top:18px}
 
-/* the network visual */
-.netbox{margin-top:64px;border:1px solid var(--line);background:var(--bg);position:relative;overflow:hidden}
-.netbar{height:38px;border-bottom:1px solid var(--line-soft);background:var(--void);display:flex;align-items:center;gap:7px;padding:0 14px}
+/* app window mock (shared) */
+.win{border:1px solid var(--line);background:var(--bg);margin:0 auto;max-width:760px;text-align:left;box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.winbar{height:38px;border-bottom:1px solid var(--line-soft);background:var(--void);display:flex;align-items:center;gap:7px;padding:0 14px}
 .dot{width:11px;height:11px;background:#474747}
-.nettitle{flex:1;text-align:center;font-family:'JetBrains Mono';font-size:11px;color:var(--mut);letter-spacing:.1em}
-.netbody{padding:38px;display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center}
-.chat{display:flex;flex-direction:column;gap:14px}
-.bubble{padding:13px 16px;font-size:14px;line-height:1.5}
-.b-user{align-self:flex-end;background:var(--vessel);max-width:80%}
-.b-ai{border:1px solid var(--line);max-width:92%}
+.wintitle{flex:1;text-align:center;font-family:'JetBrains Mono';font-size:11px;color:var(--mut);letter-spacing:.1em}
+.av{display:inline-flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-weight:600;color:#0E0E0E}
+.bub{padding:12px 15px;font-size:14px;line-height:1.55}
+.bub-u{align-self:flex-end;background:var(--vessel);max-width:78%;margin-left:auto;width:fit-content}
+.bub-ai{border:1px solid var(--line)}
 .trace{background:var(--void);padding:9px 12px;margin-bottom:10px;font-family:'JetBrains Mono';font-size:11px;color:var(--mut);display:flex;align-items:center;gap:9px}
 .trace b{color:var(--ink);font-weight:500}
-.label{font-family:'JetBrains Mono';font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
-.av{width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-size:10px;font-weight:600;color:#0E0E0E}
-.roster{display:flex;flex-direction:column;gap:10px}
-.rost-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line-soft)}
-.rost-item .nm{font-size:14px;font-weight:500}
-.rost-item .ro{font-family:'JetBrains Mono';font-size:11px;color:var(--mut)}
+.caret{display:inline-block;width:8px;height:15px;background:var(--white);margin-left:2px;animation:blink 1s steps(1) infinite;vertical-align:-2px}
+@keyframes blink{50%{opacity:0}}
+.fade{opacity:0;animation:fade .6s forwards}
+@keyframes fade{to{opacity:1}}
 
-/* sections */
-section{padding:90px 0;border-bottom:1px solid var(--line-soft)}
-.eyebrow{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin-bottom:16px}
-h2{font-family:'Space Grotesk';font-weight:600;font-size:clamp(28px,4vw,44px);line-height:1.08;letter-spacing:-.02em;color:var(--white);margin-bottom:20px}
-.section-lede{font-size:18px;line-height:1.6;color:var(--mut);max-width:640px}
+section{padding:90px 0;border-top:1px solid var(--line-soft)}
+h2{font-family:'Space Grotesk';font-weight:600;font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-.02em;color:var(--white);margin-bottom:18px}
+.section-lede{font-size:17px;line-height:1.6;color:var(--mut);max-width:620px}
+.center{text-align:center}.center .section-lede{margin:0 auto}
 
+/* see it work — 3 demos */
+.demos{display:flex;flex-direction:column;gap:64px;margin-top:54px}
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.demo.rev .demo-txt{order:2}
+.demo-n{font-family:'JetBrains Mono';font-size:12px;color:var(--mut);margin-bottom:12px}
+.demo h3{font-family:'Space Grotesk';font-weight:500;font-size:24px;color:var(--white);margin-bottom:12px}
+.demo p{font-size:15px;line-height:1.6;color:var(--mut)}
+
+/* features */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);margin-top:48px;border:1px solid var(--line-soft)}
-.cell{background:var(--bg);padding:32px 28px}
-.cell .ic{font-family:'Space Grotesk';font-size:13px;color:var(--mut);margin-bottom:18px;letter-spacing:.05em}
-.cell h3{font-family:'Space Grotesk';font-weight:500;font-size:19px;color:var(--white);margin-bottom:10px}
-.cell p{font-size:14.5px;line-height:1.6;color:var(--mut)}
+.cell{background:var(--bg);padding:30px 26px}
+.cell .ic{font-family:'Space Grotesk';font-size:12px;color:var(--mut);margin-bottom:16px}
+.cell h3{font-family:'Space Grotesk';font-weight:500;font-size:18px;color:var(--white);margin-bottom:9px}
+.cell p{font-size:14px;line-height:1.6;color:var(--mut)}
 
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
-.step{border-top:2px solid var(--high);padding-top:20px}
-.step .n{font-family:'JetBrains Mono';font-size:12px;color:var(--mut);margin-bottom:12px}
-.step h3{font-family:'Space Grotesk';font-weight:500;font-size:18px;color:var(--white);margin-bottom:8px}
-.step p{font-size:14.5px;line-height:1.6;color:var(--mut)}
+/* comparison */
+.cmp{margin-top:44px;border:1px solid var(--line-soft);overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line-soft)}
+th{font-family:'JetBrains Mono';font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);font-weight:500}
+td.app{font-weight:500;color:var(--white)}
+.yes{color:var(--ct)}.no{color:#5a5a5a}
+tr.us{background:rgba(127,119,221,.07)}
+tr.us td.app{color:var(--mk)}
 
 /* pricing */
-.prices{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;max-width:760px}
-.price{border:1px solid var(--line);background:var(--bg);padding:34px 30px}
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:48px;max-width:720px}
+.price{border:1px solid var(--line);background:var(--bg);padding:32px 28px}
 .price.pro{border:2px solid var(--white)}
-.price .pname{font-family:'Space Grotesk';font-weight:600;font-size:20px;color:var(--white);margin-bottom:4px;display:flex;align-items:center;gap:8px}
-.price .amt{font-family:'Space Grotesk';font-size:36px;color:var(--white);margin:14px 0 4px}
-.price .per{font-family:'JetBrains Mono';font-size:12px;color:var(--mut);margin-bottom:24px}
-.price ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:26px}
-.price li{font-size:14px;color:var(--ink);display:flex;gap:10px;align-items:flex-start}
-.price li::before{content:"›";color:var(--mut);font-family:'JetBrains Mono'}
+.price .pn{font-family:'Space Grotesk';font-weight:600;font-size:19px;color:var(--white);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.price .amt{font-family:'Space Grotesk';font-size:34px;color:var(--white);margin:12px 0 2px}
+.price .per{font-family:'JetBrains Mono';font-size:12px;color:var(--mut);margin-bottom:22px}
+.price ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.price li{font-size:14px;color:var(--ink);display:flex;gap:9px}.price li::before{content:"›";color:var(--mut);font-family:'JetBrains Mono'}
 .pill{font-family:'JetBrains Mono';font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:3px 8px;border:1px solid var(--line)}
 
-/* final cta */
-.final{text-align:center;padding:110px 0}
-.final h2{margin:0 auto 18px}
-.final .section-lede{margin:0 auto 36px}
+/* faq */
+.faq-item{border-bottom:1px solid var(--line-soft);padding:22px 0}
+.faq-item h4{font-family:'Space Grotesk';font-weight:500;font-size:17px;color:var(--white);margin-bottom:8px}
+.faq-item p{font-size:14.5px;line-height:1.6;color:var(--mut)}
 
-footer{padding:44px 0;border-top:1px solid var(--line-soft)}
-.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.foot .mono{font-size:11px;color:var(--mut);letter-spacing:.05em}
-.foot a{color:var(--mut);text-decoration:none;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;text-transform:uppercase}
-.foot a:hover{color:var(--white)}
+/* more */
+.more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.more-grid a{text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:12px;padding:26px 14px;border:1px solid var(--line-soft);transition:.3s}
+.more-grid a:hover{background:rgba(255,255,255,.03)}
+.more-grid .nm{font-family:'JetBrains Mono';font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.more-grid .ds{font-size:12px;color:var(--mut);text-align:center}
+
+footer{padding:46px 0;border-top:1px solid var(--line-soft);font-size:12px;color:var(--mut)}
+footer .fr{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)}
 
 @media(max-width:820px){
   nav .links{display:none}
-  .netbody{grid-template-columns:1fr;gap:24px}
-  .grid,.steps{grid-template-columns:1fr}
-  .prices{grid-template-columns:1fr}
+  .demo,.demo.rev .demo-txt{grid-template-columns:1fr;order:unset}
+  .grid,.prices{grid-template-columns:1fr}
+  .more-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
 <body>
+<div class="scan"></div>
+<div class="rail l"><span>Perfect Paradox · NI739317</span></div>
+<div class="rail r"><span>On-device · BYOK · One-time</span></div>
 
+<div class="page">
 <nav>
   <div class="brand">AG3NT</div>
   <div class="links">
-    <a href="#foso">Coordination</a>
+    <a href="#work">See it work</a>
     <a href="#features">Features</a>
-    <a href="#how">How it works</a>
+    <a href="#compare">Compare</a>
     <a href="#pricing">Pricing</a>
   </div>
-  <a href="#pricing" class="btn">Get AG3NT</a>
+  <a class="btn" onclick="openCheckout()">Get AG3NT</a>
 </nav>
 
 <header class="hero">
   <div class="wrap">
     <div class="tag"><span style="width:6px;height:6px;background:#1D9E75;display:inline-block"></span> On-device · <b>Zero telemetry</b> · One-time purchase</div>
-    <h1>Your AI team.<br><span class="sub">On your Mac.</span></h1>
-    <p class="lede">Not another chatbot. AG3NT is a team of specialist AI assistants that <strong style="color:var(--white);font-weight:500">coordinate with each other</strong>, remember your business, and work on their own — entirely on your Mac. Bring your own key. Nothing leaves your machine.</p>
+    <h1>Your AI team.<br><span class="s">On your Mac.</span></h1>
+    <p class="lede">Not another chatbot. A team of specialist AI assistants that <strong style="color:var(--white);font-weight:500">coordinate with each other</strong>, remember your business, and work on their own — entirely on your Mac. Bring your own key.</p>
     <div class="cta-row">
-      <a href="#pricing" class="btn">Get AG3NT — from $99</a>
-      <a href="#foso" class="btn btn-ghost">See it coordinate</a>
+      <a class="btn" onclick="openCheckout()">Get AG3NT — from $99</a>
+      <a class="btn btn-ghost" href="#work">See it work</a>
     </div>
-    <p class="cta-note" style="margin-top:18px">macOS 14+ · Works with Claude, GPT, or local models (Ollama)</p>
+    <p class="cta-note">macOS 14+ · Works with Claude, GPT, DeepSeek, or local models</p>
 
-    <!-- network visual -->
-    <div class="netbox">
-      <div class="netbar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="nettitle">AG3NT — your AI team</span>
-      </div>
-      <div class="netbody">
-        <div class="chat">
-          <div class="bubble b-user">Plan a campaign for the client who bills us the most.</div>
+    <div class="win" style="margin-top:56px">
+      <div class="winbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="wintitle">AG3NT — your AI team</span></div>
+      <div style="display:grid;grid-template-columns:1.2fr 1fr">
+        <div style="padding:24px;display:flex;flex-direction:column;gap:12px;border-right:1px solid var(--line-soft)">
+          <div class="bub bub-u">Plan a campaign for the client who bills us the most.</div>
           <div>
-            <div class="label" style="margin-bottom:6px"><span class="av" style="background:var(--mk)">MK</span>&nbsp; Marketing</div>
-            <div class="bubble b-ai">
+            <div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;display:flex;align-items:center;gap:7px"><span class="av" style="width:18px;height:18px;font-size:8px;background:var(--mk)">MK</span> Marketing</div>
+            <div class="bub bub-ai">
               <div class="trace">↳ asked <b>Accounting</b> → Acme, £92,000 (62%) · 0.4s</div>
-              <strong style="color:var(--white);font-weight:500">Top client: Acme — £92,000 (62% of revenue).</strong> Here's a 3-email reactivation sequence and a hook tailored to them.
+              <strong style="color:var(--white);font-weight:500">Top client: Acme — £92,000 (62%).</strong> Here's a 3-email reactivation sequence tailored to them.<span class="caret"></span>
             </div>
           </div>
         </div>
-        <div class="roster">
-          <div class="rost-item"><span class="av" style="background:var(--mk)">MK</span><div><div class="nm">Marketing</div><div class="ro">asks · accounting, email</div></div></div>
-          <div class="rost-item"><span class="av" style="background:var(--ct)">CT</span><div><div class="nm">Accounting</div><div class="ro">remembers your numbers</div></div></div>
-          <div class="rost-item"><span class="av" style="background:var(--sp)">SP</span><div><div class="nm">Support</div><div class="ro">drafts replies</div></div></div>
-          <div class="rost-item"><span class="av" style="background:var(--in)">IN</span><div><div class="nm">Research</div><div class="ro">reads your documents</div></div></div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:9px">
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line-soft)"><span class="av" style="width:24px;height:24px;font-size:9px;background:var(--mk)">MK</span><div><div style="font-size:13px;font-weight:500">Marketing</div><div class="mono" style="font-size:10px;color:var(--mut)">asks · accounting</div></div></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line-soft)"><span class="av" style="width:24px;height:24px;font-size:9px;background:var(--ct)">CT</span><div><div style="font-size:13px;font-weight:500">Accounting</div><div class="mono" style="font-size:10px;color:var(--mut)">remembers numbers</div></div></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line-soft)"><span class="av" style="width:24px;height:24px;font-size:9px;background:var(--sp)">SP</span><div><div style="font-size:13px;font-weight:500">Support</div><div class="mono" style="font-size:10px;color:var(--mut)">drafts replies</div></div></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line-soft)"><span class="av" style="width:24px;height:24px;font-size:9px;background:var(--in)">IN</span><div><div style="font-size:13px;font-weight:500">Research</div><div class="mono" style="font-size:10px;color:var(--mut)">reads documents</div></div></div>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<section id="foso">
+<!-- SEE IT WORK — 3 demos -->
+<section id="work">
   <div class="wrap">
-    <div class="eyebrow">The difference</div>
-    <h2>Assistants that actually<br>talk to each other.</h2>
-    <p class="section-lede">Every other Mac AI app gives you isolated chatbots. AG3NT gives you a team: ask Marketing for a campaign and it consults Accounting on its own, gets the numbers, and comes back with a plan. You watch them coordinate — in real time, on your machine. No one else on Mac does this.</p>
+    <div class="sec-label">// See it work</div>
+    <h2>Three things no other Mac AI does.</h2>
+    <div class="demos">
+
+      <!-- 1 orchestration -->
+      <div class="demo">
+        <div class="demo-txt">
+          <div class="demo-n">01 / Coordination</div>
+          <h3>They delegate to each other</h3>
+          <p>Ask Marketing for a campaign and it consults Accounting on its own — gets the real numbers, then comes back with a plan. You watch the hand-off happen. A team, not five separate chats.</p>
+        </div>
+        <div class="win">
+          <div class="winbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="wintitle">Marketing</span></div>
+          <div style="padding:20px;display:flex;flex-direction:column;gap:11px">
+            <div class="bub bub-u fade" style="animation-delay:.1s">Who's our top client? Draft a reactivation email.</div>
+            <div class="bub bub-ai fade" style="animation-delay:1s">
+              <div class="trace">↳ asked <b>Accounting</b> → Acme £92,000 · 0.4s</div>
+              On it — <strong style="color:var(--white);font-weight:500">Acme (£92k, 62%)</strong>. Subject: "We've been thinking about you…"<span class="caret"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 memory -->
+      <div class="demo rev">
+        <div class="demo-txt">
+          <div class="demo-n">02 / Memory</div>
+          <h3>They remember your business</h3>
+          <p>Tell an assistant something once — your clients, your numbers, your rules. Weeks later it still knows, without you repeating it. Persistent on your Mac; unlimited on Pro, where you can also drop in documents.</p>
+        </div>
+        <div class="win">
+          <div class="winbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="wintitle">Accounting</span></div>
+          <div style="padding:20px;display:flex;flex-direction:column;gap:11px">
+            <div class="bub bub-u fade" style="animation-delay:.1s">Acme billed £92k in 2025, our top client.</div>
+            <div class="fade" style="animation-delay:.9s;font-family:'JetBrains Mono';font-size:11px;color:var(--ct);display:flex;align-items:center;gap:7px"><span>◆</span> LEARNED · Acme £92k · top client</div>
+            <div class="bub bub-u fade" style="animation-delay:1.8s;opacity:0">…3 weeks later: who bills us most?</div>
+            <div class="bub bub-ai fade" style="animation-delay:2.6s"><strong style="color:var(--white);font-weight:500">Acme — £92,000 in 2025.</strong><span class="caret"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 proactivity -->
+      <div class="demo">
+        <div class="demo-txt">
+          <div class="demo-n">03 / Proactivity</div>
+          <h3>They work while you don't</h3>
+          <p>Schedule an assistant to run on its own — a Monday market recap, a weekly numbers summary — and it leaves the result waiting for you. Your team keeps working even when the app is closed.</p>
+        </div>
+        <div class="win">
+          <div class="winbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="wintitle">Research · scheduled</span></div>
+          <div style="padding:20px;display:flex;flex-direction:column;gap:11px">
+            <div class="mono fade" style="animation-delay:.2s;font-size:11px;color:var(--mut);display:flex;align-items:center;gap:7px"><span>◷</span> EVERY MONDAY · 09:00 · ran on its own</div>
+            <div class="bub bub-ai fade" style="animation-delay:1s">
+              <div class="mono" style="font-size:10px;color:var(--in);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">⚡ proactive</div>
+              This week in your sector: 3 trends worth acting on. Top: agentic AI in SMB tooling…<span class="caret"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
+<!-- FEATURES -->
 <section id="features">
   <div class="wrap">
-    <div class="eyebrow">What you get</div>
+    <div class="sec-label">// What you get</div>
     <h2>An AI team that knows your business.</h2>
     <div class="grid">
-      <div class="cell"><div class="ic">/ coordination</div><h3>They delegate</h3><p>A specialist consults a teammate when it needs their data — and shows you the hand-off. A real org chart, not five separate chats.</p></div>
-      <div class="cell"><div class="ic">/ memory</div><h3>They remember</h3><p>Tell Accounting your numbers once. Weeks later it still knows. Persistent memory per assistant — with unlimited semantic memory on Pro.</p></div>
-      <div class="cell"><div class="ic">/ proactivity</div><h3>They work alone</h3><p>Schedule an assistant to run on its own — a weekly market summary, a Monday recap — and it leaves the result waiting for you.</p></div>
-      <div class="cell"><div class="ic">/ documents</div><h3>They read your files</h3><p>Drag in a PDF or spreadsheet. Your assistant answers from its contents, instantly. <span style="color:var(--ink)">Pro</span>.</p></div>
-      <div class="cell"><div class="ic">/ any model</div><h3>Your key, your model</h3><p>Claude, GPT, DeepSeek, Mistral — or run fully free and offline with a local model. You choose per assistant, switch in one click.</p></div>
-      <div class="cell"><div class="ic">/ privacy</div><h3>Stays on your Mac</h3><p>No cloud account, no server, no telemetry of your content. Your API key and your data never leave the machine.</p></div>
+      <div class="cell"><div class="ic">/ coordination</div><h3>They delegate</h3><p>Specialists consult each other and show you the hand-off. A real org chart, not isolated chats.</p></div>
+      <div class="cell"><div class="ic">/ memory</div><h3>They remember</h3><p>Persistent memory per assistant. Unlimited semantic memory on Pro.</p></div>
+      <div class="cell"><div class="ic">/ proactivity</div><h3>They work alone</h3><p>Scheduled tasks run on their own and leave the result waiting.</p></div>
+      <div class="cell"><div class="ic">/ documents</div><h3>They read your files</h3><p>Drag in a PDF or spreadsheet and ask about its contents. <span style="color:var(--ink)">Pro</span>.</p></div>
+      <div class="cell"><div class="ic">/ any model</div><h3>Your key, your model</h3><p>Claude, GPT, DeepSeek, Mistral — or fully free and offline with a local model. Switch per assistant in one click.</p></div>
+      <div class="cell"><div class="ic">/ privacy</div><h3>Stays on your Mac</h3><p>No cloud account, no server, no telemetry. Your key and data never leave the machine.</p></div>
     </div>
   </div>
 </section>
 
-<section id="how">
+<!-- COMPARE -->
+<section id="compare">
   <div class="wrap">
-    <div class="eyebrow">How it works</div>
-    <h2>Running in five minutes.</h2>
-    <div class="steps">
-      <div class="step"><div class="n">01</div><h3>Connect your AI</h3><p>Paste your API key — Claude, GPT or others — or point it at a local model. Encrypted, stored only on your Mac.</p></div>
-      <div class="step"><div class="n">02</div><h3>Pick your team</h3><p>Marketing, Accounting, Support, Email, Research. Edit each one's instructions to fit your business — your sector, your tone, your rules.</p></div>
-      <div class="step"><div class="n">03</div><h3>Put them to work</h3><p>Chat, delegate, schedule. They remember, coordinate, and act — like a team that finally knows what you do.</p></div>
+    <div class="sec-label">// vs the rest</div>
+    <h2>The only one that coordinates.</h2>
+    <div class="cmp">
+      <table>
+        <tr><th>&nbsp;</th><th>Price</th><th>BYOK</th><th>Memory</th><th>Agents coordinate</th><th>On-device</th></tr>
+        <tr><td class="app">BoltAI</td><td>$99 once</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="no">No · isolated</td><td class="yes">Yes</td></tr>
+        <tr><td class="app">Raycast AI</td><td>$8–18/mo</td><td class="yes">Yes</td><td>Partial</td><td class="no">No</td><td>Partial</td></tr>
+        <tr><td class="app">Cherry Studio</td><td>Free</td><td class="yes">Yes</td><td>Limited</td><td class="no">No</td><td class="yes">Yes</td></tr>
+        <tr><td class="app">Olympia / Big Team</td><td>$240–470/yr</td><td class="no">No</td><td class="yes">Yes</td><td>Partial</td><td class="no">Cloud</td></tr>
+        <tr class="us"><td class="app">AG3NT</td><td>$99 / $129 once</td><td class="yes">Yes</td><td class="yes">+ vector</td><td class="yes">Yes · real</td><td class="yes">Yes</td></tr>
+      </table>
     </div>
   </div>
 </section>
 
+<!-- PRICING -->
 <section id="pricing">
   <div class="wrap">
-    <div class="eyebrow">Pricing</div>
+    <div class="sec-label">// Pricing</div>
     <h2>Own it. No subscription.</h2>
-    <p class="section-lede">A cloud "AI team" costs $240–470 a year, forever. AG3NT is a one-time purchase that runs on your Mac. It pays for itself in months.</p>
+    <p class="section-lede">A cloud "AI team" runs $240–470 a year, forever. AG3NT is a one-time purchase on your Mac.</p>
     <div class="prices">
       <div class="price">
-        <div class="pname">Basic</div>
-        <div class="amt">$99</div>
-        <div class="per">one-time · free updates 1yr</div>
-        <ul>
-          <li>5 specialist assistants</li>
-          <li>Coordination between assistants</li>
-          <li>Scheduled / proactive tasks</li>
-          <li>40 memories per assistant</li>
-          <li>Any model — cloud or local</li>
-        </ul>
-        <a href="#" class="btn btn-ghost" style="width:100%;justify-content:center">Get Basic</a>
+        <div class="pn">Basic</div>
+        <div class="amt">$99</div><div class="per">one-time · 1yr updates</div>
+        <ul><li>5 specialist assistants</li><li>Coordination between assistants</li><li>Scheduled / proactive tasks</li><li>40 memories per assistant</li><li>Any model — cloud or local</li></ul>
+        <a class="btn btn-ghost" style="width:100%;justify-content:center" onclick="openCheckout('basic')">Get Basic</a>
       </div>
       <div class="price pro">
-        <div class="pname">Pro <span class="pill">unlimited memory</span></div>
-        <div class="amt">$129</div>
-        <div class="per">one-time · free updates 1yr</div>
-        <ul>
-          <li>Everything in Basic</li>
-          <li><strong style="color:var(--white);font-weight:500">Unlimited</strong> semantic memory</li>
-          <li>Drag in documents (PDF, text, CSV)</li>
-          <li>Memory engine runs 100% on-device</li>
-          <li>No per-use cost, ever</li>
-        </ul>
-        <a href="#" class="btn" style="width:100%;justify-content:center">Get Pro</a>
+        <div class="pn">Pro <span class="pill">unlimited memory</span></div>
+        <div class="amt">$129</div><div class="per">one-time · 1yr updates</div>
+        <ul><li>Everything in Basic</li><li><strong style="color:var(--white);font-weight:500">Unlimited</strong> semantic memory</li><li>Drag in documents (PDF, text, CSV)</li><li>Memory engine 100% on-device</li><li>No per-use cost, ever</li></ul>
+        <a class="btn" style="width:100%;justify-content:center" onclick="openCheckout('pro')">Get Pro</a>
       </div>
     </div>
-    <p class="cta-note" style="margin-top:22px">14-day trial · 30-day money-back · macOS 14+</p>
+    <p class="cta-note">14-day trial · 30-day money-back · macOS 14+</p>
   </div>
 </section>
 
-<section class="final">
+<!-- FAQ -->
+<section>
   <div class="wrap">
-    <h2>Stop chatting.<br>Start delegating.</h2>
-    <p class="section-lede">Give your business an AI team that remembers, coordinates, and works while you don't — privately, on your Mac.</p>
-    <a href="#pricing" class="btn">Get AG3NT</a>
+    <div class="sec-label">// Questions</div>
+    <h2>Good to know.</h2>
+    <div style="margin-top:36px">
+      <div class="faq-item"><h4>Do I need an OpenAI or Claude account?</h4><p>You bring your own API key (Claude, GPT, DeepSeek, Mistral) — or run fully free with a local model via Ollama. AG3NT never charges per use; you only pay your provider, if any.</p></div>
+      <div class="faq-item"><h4>Where does my data go?</h4><p>Nowhere. Everything runs on your Mac. API keys live in your macOS Keychain. No cloud account, no server, no telemetry of your content.</p></div>
+      <div class="faq-item"><h4>What's the difference between Basic and Pro?</h4><p>Basic gives each assistant 40 memories. Pro makes memory unlimited (semantic search) and lets you drop in documents. The Pro memory engine downloads once and runs entirely on-device.</p></div>
+      <div class="faq-item"><h4>Subscription?</h4><p>No. One-time purchase, yours forever, with a year of free updates. You already pay your AI provider — we don't double-charge you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE -->
+<section>
+  <div class="wrap">
+    <div class="sec-label">// More from Perfect Paradox</div>
+    <div class="more-grid">
+      <a href="https://everyfile.perfectparadox.co.uk"><img src="icons/screenshelf.png" alt="Everyfile" width="64" height="64" style="border-radius:14px"><div class="nm">Everyfile</div><div class="ds">Find any file instantly</div></a>
+      <a href="https://curtain.perfectparadox.co.uk"><img src="icons/curtain.png" alt="Curtain" width="64" height="64" style="border-radius:14px"><div class="nm">Curtain</div><div class="ds">Auto DND when you share</div></a>
+      <a href="https://evergreen.perfectparadox.co.uk"><img src="icons/evergreen.png" alt="Evergreen" width="64" height="64" style="border-radius:14px"><div class="nm">Evergreen</div><div class="ds">Every app up to date</div></a>
+      <a href="https://notebound.perfectparadox.co.uk"><img src="icons/notebound.png" alt="Notebound" width="64" height="64" style="border-radius:14px"><div class="nm">Notebound</div><div class="ds">Markdown to Apple Notes</div></a>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap foot">
+  <div class="wrap fr">
     <div class="mono">© 2026 Perfect Paradox Ltd · NI739317</div>
-    <div style="display:flex;gap:22px">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Support</a>
-    </div>
+    <div><a href="/legal/privacy.html">Privacy</a> · <a href="/legal/terms.html">Terms</a> · <a href="/legal/refund.html">Refund</a> · <a href="mailto:info@perfectparadox.co.uk">info@perfectparadox.co.uk</a></div>
   </div>
 </footer>
+</div>
 
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<script>
+  // Cuenta Paddle de Perfect Paradox (mismo token que las demás apps).
+  // PRICE IDs de AG3NT: Diego los crea en Paddle y los pega aquí.
+  const PADDLE_TOKEN = 'live_0c45d27a78741d1285949859fcc';
+  const PRICES = { basic: 'PRICE_ID_AG3NT_BASIC', pro: 'PRICE_ID_AG3NT_PRO' };
+  const READY = window.Paddle && !PRICES.basic.includes('PRICE_ID');
+  try { if (window.Paddle) Paddle.Initialize({ token: PADDLE_TOKEN }); } catch (e) {}
+  function openCheckout(tier){
+    const id = PRICES[tier] || PRICES.pro;
+    if (READY) { Paddle.Checkout.open({ items:[{ priceId:id, quantity:1 }] }); }
+    else { window.location.href = 'mailto:info@perfectparadox.co.uk?subject=Buy%20AG3NT'; }
+  }
+</script>
 </body>
 </html>
