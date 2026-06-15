@@ -377,11 +377,23 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
   };
   const READY = window.Paddle && !PRICES.basic.includes('PRICE_ID');
   try { if (window.Paddle) Paddle.Initialize({ token: PADDLE_TOKEN }); } catch (e) {}
-  function openCheckout(tier){
+  function openCheckout(tier, email){
     const id = PRICES[tier] || PRICES.pro;
-    if (READY) { Paddle.Checkout.open({ items:[{ priceId:id, quantity:1 }] }); }
-    else { window.location.href = 'mailto:info@perfectparadox.co.uk?subject=Buy%20AG3NT'; }
+    if (READY) {
+      const opts = { items:[{ priceId:id, quantity:1 }] };
+      if (email) opts.customer = { email };           // prerellena el email (upgrade desde la app)
+      Paddle.Checkout.open(opts);
+    } else { window.location.href = 'mailto:info@perfectparadox.co.uk?subject=Buy%20AG3NT'; }
   }
+  // La app abre el checkout directo con ?buy=basic|pro|upgrade (&email=… para el upgrade).
+  (function(){
+    const q = new URLSearchParams(location.search);
+    const buy = q.get('buy');
+    if (buy && PRICES[buy]) {
+      const open = () => openCheckout(buy, q.get('email') || undefined);
+      if (window.Paddle) open(); else window.addEventListener('load', open);
+    }
+  })();
 </script>
 <script>
   // 1) Fondo "video": red de agentes que se conectan, REACTIVA al ratón.
