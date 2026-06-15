@@ -70,8 +70,11 @@ h1 .s{color:var(--mut)}
 .trace b{color:var(--ink);font-weight:500}
 .caret{display:inline-block;width:8px;height:15px;background:var(--white);margin-left:2px;animation:blink 1s steps(1) infinite;vertical-align:-2px}
 @keyframes blink{50%{opacity:0}}
-.fade{opacity:0;animation:fade .6s forwards}
-@keyframes fade{to{opacity:1}}
+/* Las animaciones de los demos solo corren cuando el demo entra en viewport (.play) */
+.fade{opacity:0}
+.play .fade{animation:fade .55s forwards}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.demo-acc{border-left:2px solid var(--high);padding-left:16px}
 
 section{padding:90px 0;border-top:1px solid var(--line-soft);background:var(--void);position:relative}
 h2{font-family:'Space Grotesk';font-weight:600;font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-.02em;color:var(--white);margin-bottom:18px}
@@ -177,7 +180,7 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
             <div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;display:flex;align-items:center;gap:7px"><span class="av" style="width:18px;height:18px;font-size:8px;background:var(--mk)">MK</span> Marketing</div>
             <div class="bub bub-ai">
               <div class="trace">↳ asked <b>Accounting</b> → Acme, £92,000 (62%) · 0.4s</div>
-              <strong style="color:var(--white);font-weight:500">Top client: Acme — £92,000 (62%).</strong> Here's a 3-email reactivation sequence tailored to them.<span class="caret"></span>
+              <span id="hero-type"></span><span class="caret"></span>
             </div>
           </div>
         </div>
@@ -192,6 +195,16 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
   </div>
 </header>
 
+<!-- stats strip -->
+<section style="padding:46px 0">
+  <div class="wrap" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)">
+    <div style="background:var(--bg);padding:26px 20px;text-align:center"><div style="font-family:'Space Grotesk';font-size:34px;color:var(--white);line-height:1">5</div><div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;margin-top:8px">Specialists</div></div>
+    <div style="background:var(--bg);padding:26px 20px;text-align:center"><div style="font-family:'Space Grotesk';font-size:34px;color:var(--white);line-height:1">0</div><div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;margin-top:8px">Telemetry</div></div>
+    <div style="background:var(--bg);padding:26px 20px;text-align:center"><div style="font-family:'Space Grotesk';font-size:34px;color:var(--white);line-height:1">∞</div><div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;margin-top:8px">Memory · Pro</div></div>
+    <div style="background:var(--bg);padding:26px 20px;text-align:center"><div style="font-family:'Space Grotesk';font-size:34px;color:var(--white);line-height:1">1</div><div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;margin-top:8px">Purchase</div></div>
+  </div>
+</section>
+
 <!-- SEE IT WORK — 3 demos -->
 <section id="work">
   <div class="wrap">
@@ -201,8 +214,8 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 
       <!-- 1 orchestration -->
       <div class="demo">
-        <div class="demo-txt">
-          <div class="demo-n">01 / Coordination</div>
+        <div class="demo-txt demo-acc" style="border-left-color:var(--mk)">
+          <div class="demo-n" style="color:var(--mk)">01 / Coordination</div>
           <h3>They delegate to each other</h3>
           <p>Ask Marketing for a campaign and it consults Accounting on its own — gets the real numbers, then comes back with a plan. You watch the hand-off happen. A team, not five separate chats.</p>
         </div>
@@ -220,8 +233,8 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 
       <!-- 2 memory -->
       <div class="demo rev">
-        <div class="demo-txt">
-          <div class="demo-n">02 / Memory</div>
+        <div class="demo-txt demo-acc" style="border-left-color:var(--ct)">
+          <div class="demo-n" style="color:var(--ct)">02 / Memory</div>
           <h3>They remember your business</h3>
           <p>Tell an assistant something once — your clients, your numbers, your rules. Weeks later it still knows, without you repeating it. Persistent on your Mac; unlimited on Pro, where you can also drop in documents.</p>
         </div>
@@ -238,8 +251,8 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 
       <!-- 3 proactivity -->
       <div class="demo">
-        <div class="demo-txt">
-          <div class="demo-n">03 / Proactivity</div>
+        <div class="demo-txt demo-acc" style="border-left-color:var(--in)">
+          <div class="demo-n" style="color:var(--in)">03 / Proactivity</div>
           <h3>They work while you don't</h3>
           <p>Schedule an assistant to run on its own — a Monday market recap, a weekly numbers summary — and it leaves the result waiting for you. Your team keeps working even when the app is closed.</p>
         </div>
@@ -367,11 +380,12 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
   }
 </script>
 <script>
-  // Fondo "video": red de agentes que se conectan (el foso del producto, en vivo).
+  // 1) Fondo "video": red de agentes que se conectan, REACTIVA al ratón.
   (function(){
     const c = document.getElementById('bg'), x = c.getContext('2d');
     const COLORS = ['#7F77DD','#1D9E75','#D85A30','#D4537E','#BA7517','#85B7EB'];
-    let w,h,nodes,dpr;
+    let w,h,nodes,dpr,t=0;
+    const mouse = {x:-9999, y:-9999};
     function resize(){
       dpr = Math.min(window.devicePixelRatio||1, 2);
       w = c.width = innerWidth*dpr; h = c.height = innerHeight*dpr;
@@ -383,31 +397,71 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
         r:(Math.random()*1.6+1.1)*dpr, col:COLORS[(Math.random()*COLORS.length)|0]
       }));
     }
+    addEventListener('mousemove', e=>{ mouse.x=e.clientX*dpr; mouse.y=e.clientY*dpr; });
+    addEventListener('mouseout', ()=>{ mouse.x=mouse.y=-9999; });
     function frame(){
+      t+=0.01;
       x.clearRect(0,0,w,h);
-      const R = 150*dpr;
+      const R = 150*dpr, MR = 200*dpr;
+      // pulso sutil de densidad (el fondo "respira")
+      const breathe = 0.18 + Math.sin(t)*0.05;
       for(let i=0;i<nodes.length;i++){
         const a=nodes[i];
         a.x+=a.vx; a.y+=a.vy;
         if(a.x<0||a.x>w)a.vx*=-1; if(a.y<0||a.y>h)a.vy*=-1;
         for(let j=i+1;j<nodes.length;j++){
           const b=nodes[j], dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
-          if(d<R){
-            x.globalAlpha=(1-d/R)*.22;
-            x.strokeStyle=a.col; x.lineWidth=dpr*.6;
-            x.beginPath(); x.moveTo(a.x,a.y); x.lineTo(b.x,b.y); x.stroke();
-          }
+          if(d<R){ x.globalAlpha=(1-d/R)*breathe; x.strokeStyle=a.col; x.lineWidth=dpr*.6;
+            x.beginPath(); x.moveTo(a.x,a.y); x.lineTo(b.x,b.y); x.stroke(); }
         }
+        // conexión e iluminación con el cursor
+        const mdx=a.x-mouse.x, mdy=a.y-mouse.y, md=Math.hypot(mdx,mdy);
+        if(md<MR){
+          x.globalAlpha=(1-md/MR)*.6; x.strokeStyle=a.col; x.lineWidth=dpr*.9;
+          x.beginPath(); x.moveTo(a.x,a.y); x.lineTo(mouse.x,mouse.y); x.stroke();
+          a._glow = 1-md/MR;
+        } else a._glow = 0;
       }
       for(const a of nodes){
         x.globalAlpha=.85; x.fillStyle=a.col;
-        x.beginPath(); x.arc(a.x,a.y,a.r,0,7); x.fill();
+        x.beginPath(); x.arc(a.x,a.y,a.r*(1+(a._glow||0)*1.6),0,7); x.fill();
       }
       x.globalAlpha=1;
       requestAnimationFrame(frame);
     }
     addEventListener('resize', resize);
     resize(); frame();
+  })();
+
+  // 2) Hero escribiéndose en bucle (muestra el streaming del producto).
+  (function(){
+    const el = document.getElementById('hero-type'); if(!el) return;
+    const full = 'Top client: Acme — £92,000 (62%). Here’s a 3-email reactivation sequence tailored to them.';
+    let i=0, dir=1;
+    function step(){
+      el.textContent = full.slice(0,i);
+      if(dir>0){ i++; if(i>full.length){ dir=0; setTimeout(()=>{dir=-1;}, 2600); } }
+      else if(dir<0){ i-=2; if(i<=0){ i=0; dir=1; setTimeout(loop, 600); return; } }
+      if(dir!==0) setTimeout(step, dir>0?32:12);
+    }
+    function loop(){ step(); }
+    loop();
+  })();
+
+  // 3) Demos que se reproducen al entrar en viewport (en bucle mientras visibles).
+  (function(){
+    const wins = document.querySelectorAll('#work .win');
+    const replay = el => { el.classList.remove('play'); void el.offsetWidth; el.classList.add('play'); };
+    const timers = new Map();
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          replay(e.target);
+          timers.set(e.target, setInterval(()=>replay(e.target), 6000));
+        } else { clearInterval(timers.get(e.target)); timers.delete(e.target); }
+      });
+    }, {threshold:.4});
+    wins.forEach(w=>io.observe(w));
   })();
 </script>
 </body>
