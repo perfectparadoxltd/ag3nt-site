@@ -3,8 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AG3NT — Your AI team, on your Mac. Private. One-time.</title>
-<meta name="description" content="AG3NT is the first on-device AI team for your Mac, where specialist assistants coordinate with each other, remember your business, and work on their own. Bring your own key. Private, no telemetry, one-time purchase. macOS 14+.">
+<title data-i18n="meta.title">AG3NT — Your AI team, on your Mac. Private. One-time.</title>
+<meta name="description" data-i18n-attr="content:meta.description" content="AG3NT is the first on-device AI team for your Mac, where specialist assistants coordinate with each other, remember your business, and work on their own. Bring your own key. Private, no telemetry, one-time purchase. macOS 14+.">
+<link rel="canonical" href="https://ag3nt.perfectparadox.co.uk/">
+<link rel="alternate" hreflang="en" href="https://ag3nt.perfectparadox.co.uk/?lang=en">
+<link rel="alternate" hreflang="es" href="https://ag3nt.perfectparadox.co.uk/?lang=es">
+<link rel="alternate" hreflang="fr" href="https://ag3nt.perfectparadox.co.uk/?lang=fr">
+<link rel="alternate" hreflang="de" href="https://ag3nt.perfectparadox.co.uk/?lang=de">
+<link rel="alternate" hreflang="it" href="https://ag3nt.perfectparadox.co.uk/?lang=it">
+<link rel="alternate" hreflang="pt" href="https://ag3nt.perfectparadox.co.uk/?lang=pt">
+<link rel="alternate" hreflang="ja" href="https://ag3nt.perfectparadox.co.uk/?lang=ja">
+<link rel="alternate" hreflang="zh-Hans" href="https://ag3nt.perfectparadox.co.uk/?lang=zh-Hans">
+<link rel="alternate" hreflang="x-default" href="https://ag3nt.perfectparadox.co.uk/">
 <meta property="og:title" content="AG3NT — Your AI team, on your Mac">
 <meta property="og:description" content="Specialist AI assistants that coordinate, remember, and work on their own — entirely on your Mac. Private. One-time. BYOK.">
 <meta property="og:type" content="website">
@@ -133,6 +143,12 @@ footer{padding:46px 0;border-top:1px solid var(--line-soft);font-size:12px;color
 footer .fr{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)}
 
+/* language picker (i18n) */
+.i18n-picker{display:flex;align-items:center;gap:7px}
+.i18n-picker .i18n-globe{font-size:13px;opacity:.6;line-height:1}
+.i18n-picker select{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);background:rgba(255,255,255,.03);border:1px solid var(--line);padding:7px 26px 7px 10px;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23919191' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;transition:.3s}
+.i18n-picker select:hover{color:var(--white);border-color:var(--mut)}
+.i18n-picker select option{background:#131313;color:var(--ink);text-transform:none}
 @media(max-width:820px){
   nav .links{display:none}
   .demo,.demo.rev .demo-txt{grid-template-columns:1fr;order:unset}
@@ -156,43 +172,43 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 <nav>
   <div class="brand">AG3NT</div>
   <div class="links">
-    <a href="#work">See it work</a>
-    <a href="#features">Features</a>
-    <a href="#compare">Compare</a>
-    <a href="#pricing">Pricing</a>
+    <a href="#work" data-i18n="nav.work">See it work</a>
+    <a href="#features" data-i18n="nav.features">Features</a>
+    <a href="#compare" data-i18n="nav.compare">Compare</a>
+    <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
   </div>
-  <a class="btn" href="#pricing">Get AG3NT</a>
+  <a class="btn" href="#pricing" data-i18n="nav.get">Get AG3NT</a>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <div class="tag"><span style="width:6px;height:6px;background:#1D9E75;display:inline-block"></span> On-device · <b>Zero telemetry</b> · One-time purchase</div>
-    <h1>Your AI team.<br><span class="s">On your Mac.</span></h1>
-    <p class="lede">Not another chatbot. A team of specialist AI assistants that <strong style="color:var(--white);font-weight:500">coordinate with each other</strong>, remember your business, and work on their own — entirely on your Mac. Bring your own key.</p>
+    <div class="tag"><span style="width:6px;height:6px;background:#1D9E75;display:inline-block"></span> <span data-i18n="hero.tag">On-device · <b>Zero telemetry</b> · One-time purchase</span></div>
+    <h1 data-i18n="hero.h1">Your AI team.<br><span class="s">On your Mac.</span></h1>
+    <p class="lede" data-i18n="hero.lede">Not another chatbot. A team of specialist AI assistants that <strong style="color:var(--white);font-weight:500">coordinate with each other</strong>, remember your business, and work on their own — entirely on your Mac. Bring your own key.</p>
     <div class="cta-row">
-      <a class="btn" href="https://github.com/perfectparadoxltd/ag3nt-site/releases/download/v0.1.0/AG3NT_0.1.0_aarch64.dmg">Download — free trial</a>
-      <a class="btn btn-ghost" href="#pricing">See pricing</a>
+      <a class="btn" href="https://github.com/perfectparadoxltd/ag3nt-site/releases/download/v0.1.0/AG3NT_0.1.0_aarch64.dmg" data-i18n="hero.download">Download — free trial</a>
+      <a class="btn btn-ghost" href="#pricing" data-i18n="hero.pricing">See pricing</a>
     </div>
-    <p class="cta-note">Free 14-day trial · then $99 one-time · macOS 14+ (Apple Silicon) · Works with Claude, GPT, DeepSeek or local models</p>
+    <p class="cta-note" data-i18n="hero.note">Free 14-day trial · then $99 one-time · macOS 14+ (Apple Silicon) · Works with Claude, GPT, DeepSeek or local models</p>
 
     <div class="win" style="margin-top:56px">
-      <div class="winbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="wintitle">AG3NT — your AI team</span></div>
+      <div class="winbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="wintitle" data-i18n="hero.win.title">AG3NT — your AI team</span></div>
       <div style="display:grid;grid-template-columns:1.2fr 1fr">
         <div style="padding:24px;display:flex;flex-direction:column;gap:12px;border-right:1px solid var(--line-soft)">
-          <div class="bub bub-u">Plan a campaign for the client who bills us the most.</div>
+          <div class="bub bub-u" data-i18n="hero.win.user">Plan a campaign for the client who bills us the most.</div>
           <div>
-            <div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;display:flex;align-items:center;gap:7px"><span class="av" style="width:18px;height:18px;font-size:8px;background:var(--mk)">MK</span> Marketing</div>
+            <div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;display:flex;align-items:center;gap:7px"><span class="av" style="width:18px;height:18px;font-size:8px;background:var(--mk)">MK</span> <span data-i18n="hero.win.mk">Marketing</span></div>
             <div class="bub bub-ai">
-              <div class="trace">↳ asked <b>Accounting</b> → Acme, £92,000 (62%) · 0.4s</div>
+              <div class="trace" data-i18n="hero.win.trace">↳ asked <b>Accounting</b> → Acme, £92,000 (62%) · 0.4s</div>
               <span id="hero-type"></span><span class="caret"></span>
             </div>
           </div>
         </div>
         <div style="padding:20px;display:flex;flex-direction:column;gap:9px">
-          <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line-soft)"><span class="av" style="width:24px;height:24px;font-size:9px;background:var(--mk)">MK</span><div><div style="font-size:13px;font-weight:500">Marketing</div><div class="mono" style="font-size:10px;color:var(--mut)">asks · accounting</div></div></div>
-          <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line-soft)"><span class="av" style="width:24px;height:24px;font-size:9px;background:var(--ct)">CT</span><div><div style="font-size:13px;font-weight:500">Accounting</div><div class="mono" style="font-size:10px;color:var(--mut)">remembers numbers</div></div></div>
-          <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line-soft)"><span class="av" style="width:24px;height:24px;font-size:9px;background:var(--sp)">SP</span><div><div style="font-size:13px;font-weight:500">Support</div><div class="mono" style="font-size:10px;color:var(--mut)">drafts replies</div></div></div>
-          <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line-soft)"><span class="av" style="width:24px;height:24px;font-size:9px;background:var(--in)">IN</span><div><div style="font-size:13px;font-weight:500">Research</div><div class="mono" style="font-size:10px;color:var(--mut)">reads documents</div></div></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line-soft)"><span class="av" style="width:24px;height:24px;font-size:9px;background:var(--mk)">MK</span><div><div style="font-size:13px;font-weight:500" data-i18n="hero.win.mk.role">Marketing</div><div class="mono" style="font-size:10px;color:var(--mut)" data-i18n="hero.win.mk.sub">asks · accounting</div></div></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line-soft)"><span class="av" style="width:24px;height:24px;font-size:9px;background:var(--ct)">CT</span><div><div style="font-size:13px;font-weight:500" data-i18n="hero.win.ct.role">Accounting</div><div class="mono" style="font-size:10px;color:var(--mut)" data-i18n="hero.win.ct.sub">remembers numbers</div></div></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line-soft)"><span class="av" style="width:24px;height:24px;font-size:9px;background:var(--sp)">SP</span><div><div style="font-size:13px;font-weight:500" data-i18n="hero.win.sp.role">Support</div><div class="mono" style="font-size:10px;color:var(--mut)" data-i18n="hero.win.sp.sub">drafts replies</div></div></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line-soft)"><span class="av" style="width:24px;height:24px;font-size:9px;background:var(--in)">IN</span><div><div style="font-size:13px;font-weight:500" data-i18n="hero.win.in.role">Research</div><div class="mono" style="font-size:10px;color:var(--mut)" data-i18n="hero.win.in.sub">reads documents</div></div></div>
         </div>
       </div>
     </div>
@@ -202,34 +218,34 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 <!-- stats strip -->
 <section style="padding:46px 0">
   <div class="wrap" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)">
-    <div style="background:var(--bg);padding:26px 20px;text-align:center"><div style="font-family:'Space Grotesk';font-size:34px;color:var(--white);line-height:1">5</div><div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;margin-top:8px">Specialists</div></div>
-    <div style="background:var(--bg);padding:26px 20px;text-align:center"><div style="font-family:'Space Grotesk';font-size:34px;color:var(--white);line-height:1">0</div><div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;margin-top:8px">Telemetry</div></div>
-    <div style="background:var(--bg);padding:26px 20px;text-align:center"><div style="font-family:'Space Grotesk';font-size:34px;color:var(--white);line-height:1">∞</div><div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;margin-top:8px">Memory · Pro</div></div>
-    <div style="background:var(--bg);padding:26px 20px;text-align:center"><div style="font-family:'Space Grotesk';font-size:34px;color:var(--white);line-height:1">1</div><div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;margin-top:8px">Purchase</div></div>
+    <div style="background:var(--bg);padding:26px 20px;text-align:center"><div style="font-family:'Space Grotesk';font-size:34px;color:var(--white);line-height:1">5</div><div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;margin-top:8px" data-i18n="stat.specialists">Specialists</div></div>
+    <div style="background:var(--bg);padding:26px 20px;text-align:center"><div style="font-family:'Space Grotesk';font-size:34px;color:var(--white);line-height:1">0</div><div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;margin-top:8px" data-i18n="stat.telemetry">Telemetry</div></div>
+    <div style="background:var(--bg);padding:26px 20px;text-align:center"><div style="font-family:'Space Grotesk';font-size:34px;color:var(--white);line-height:1">∞</div><div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;margin-top:8px" data-i18n="stat.memory">Memory · Pro</div></div>
+    <div style="background:var(--bg);padding:26px 20px;text-align:center"><div style="font-family:'Space Grotesk';font-size:34px;color:var(--white);line-height:1">1</div><div class="mono" style="font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;margin-top:8px" data-i18n="stat.purchase">Purchase</div></div>
   </div>
 </section>
 
 <!-- SEE IT WORK — 3 demos -->
 <section id="work">
   <div class="wrap">
-    <div class="sec-label">// See it work</div>
-    <h2>Three things no other Mac AI does.</h2>
+    <div class="sec-label" data-i18n="work.label">// See it work</div>
+    <h2 data-i18n="work.h2">Three things no other Mac AI does.</h2>
     <div class="demos">
 
       <!-- 1 orchestration -->
       <div class="demo">
         <div class="demo-txt demo-acc" style="border-left-color:var(--mk)">
-          <div class="demo-n" style="color:var(--mk)">01 / Coordination</div>
-          <h3>They delegate to each other</h3>
-          <p>Ask Marketing for a campaign and it consults Accounting on its own — gets the real numbers, then comes back with a plan. You watch the hand-off happen. A team, not five separate chats.</p>
+          <div class="demo-n" style="color:var(--mk)" data-i18n="work.1.n">01 / Coordination</div>
+          <h3 data-i18n="work.1.h3">They delegate to each other</h3>
+          <p data-i18n="work.1.p">Ask Marketing for a campaign and it consults Accounting on its own — gets the real numbers, then comes back with a plan. You watch the hand-off happen. A team, not five separate chats.</p>
         </div>
         <div class="win">
-          <div class="winbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="wintitle">Marketing</span></div>
+          <div class="winbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="wintitle" data-i18n="work.1.win.title">Marketing</span></div>
           <div style="padding:20px;display:flex;flex-direction:column;gap:11px">
-            <div class="bub bub-u fade" style="animation-delay:.1s">Who's our top client? Draft a reactivation email.</div>
+            <div class="bub bub-u fade" style="animation-delay:.1s" data-i18n="work.1.win.user">Who's our top client? Draft a reactivation email.</div>
             <div class="bub bub-ai fade" style="animation-delay:1s">
-              <div class="trace">↳ asked <b>Accounting</b> → Acme £92,000 · 0.4s</div>
-              On it — <strong style="color:var(--white);font-weight:500">Acme (£92k, 62%)</strong>. Subject: "We've been thinking about you…"<span class="caret"></span>
+              <div class="trace" data-i18n="work.1.win.trace">↳ asked <b>Accounting</b> → Acme £92,000 · 0.4s</div>
+              <span data-i18n="work.1.win.ai">On it — <strong style="color:var(--white);font-weight:500">Acme (£92k, 62%)</strong>. Subject: "We've been thinking about you…"<span class="caret"></span></span>
             </div>
           </div>
         </div>
@@ -238,17 +254,17 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
       <!-- 2 memory -->
       <div class="demo rev">
         <div class="demo-txt demo-acc" style="border-left-color:var(--ct)">
-          <div class="demo-n" style="color:var(--ct)">02 / Memory</div>
-          <h3>They remember your business</h3>
-          <p>Tell an assistant something once — your clients, your numbers, your rules. Weeks later it still knows, without you repeating it. Persistent on your Mac; unlimited on Pro, where you can also drop in documents.</p>
+          <div class="demo-n" style="color:var(--ct)" data-i18n="work.2.n">02 / Memory</div>
+          <h3 data-i18n="work.2.h3">They remember your business</h3>
+          <p data-i18n="work.2.p">Tell an assistant something once — your clients, your numbers, your rules. Weeks later it still knows, without you repeating it. Persistent on your Mac; unlimited on Pro, where you can also drop in documents.</p>
         </div>
         <div class="win">
-          <div class="winbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="wintitle">Accounting</span></div>
+          <div class="winbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="wintitle" data-i18n="work.2.win.title">Accounting</span></div>
           <div style="padding:20px;display:flex;flex-direction:column;gap:11px">
-            <div class="bub bub-u fade" style="animation-delay:.1s">Acme billed £92k in 2025, our top client.</div>
-            <div class="fade" style="animation-delay:.9s;font-family:'JetBrains Mono';font-size:11px;color:var(--ct);display:flex;align-items:center;gap:7px"><span>◆</span> LEARNED · Acme £92k · top client</div>
-            <div class="bub bub-u fade" style="animation-delay:1.8s;opacity:0">…3 weeks later: who bills us most?</div>
-            <div class="bub bub-ai fade" style="animation-delay:2.6s"><strong style="color:var(--white);font-weight:500">Acme — £92,000 in 2025.</strong><span class="caret"></span></div>
+            <div class="bub bub-u fade" style="animation-delay:.1s" data-i18n="work.2.win.user1">Acme billed £92k in 2025, our top client.</div>
+            <div class="fade" style="animation-delay:.9s;font-family:'JetBrains Mono';font-size:11px;color:var(--ct);display:flex;align-items:center;gap:7px" data-i18n="work.2.win.learned"><span>◆</span> LEARNED · Acme £92k · top client</div>
+            <div class="bub bub-u fade" style="animation-delay:1.8s;opacity:0" data-i18n="work.2.win.user2">…3 weeks later: who bills us most?</div>
+            <div class="bub bub-ai fade" style="animation-delay:2.6s" data-i18n="work.2.win.ai"><strong style="color:var(--white);font-weight:500">Acme — £92,000 in 2025.</strong><span class="caret"></span></div>
           </div>
         </div>
       </div>
@@ -256,17 +272,17 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
       <!-- 3 proactivity -->
       <div class="demo">
         <div class="demo-txt demo-acc" style="border-left-color:var(--in)">
-          <div class="demo-n" style="color:var(--in)">03 / Proactivity</div>
-          <h3>They work while you don't</h3>
-          <p>Schedule an assistant to run on its own — a Monday market recap, a weekly numbers summary — and it leaves the result waiting for you. Your team keeps working even when the app is closed.</p>
+          <div class="demo-n" style="color:var(--in)" data-i18n="work.3.n">03 / Proactivity</div>
+          <h3 data-i18n="work.3.h3">They work while you don't</h3>
+          <p data-i18n="work.3.p">Schedule an assistant to run on its own — a Monday market recap, a weekly numbers summary — and it leaves the result waiting for you. Your team keeps working even when the app is closed.</p>
         </div>
         <div class="win">
-          <div class="winbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="wintitle">Research · scheduled</span></div>
+          <div class="winbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="wintitle" data-i18n="work.3.win.title">Research · scheduled</span></div>
           <div style="padding:20px;display:flex;flex-direction:column;gap:11px">
-            <div class="mono fade" style="animation-delay:.2s;font-size:11px;color:var(--mut);display:flex;align-items:center;gap:7px"><span>◷</span> EVERY MONDAY · 09:00 · ran on its own</div>
+            <div class="mono fade" style="animation-delay:.2s;font-size:11px;color:var(--mut);display:flex;align-items:center;gap:7px" data-i18n="work.3.win.sched"><span>◷</span> EVERY MONDAY · 09:00 · ran on its own</div>
             <div class="bub bub-ai fade" style="animation-delay:1s">
-              <div class="mono" style="font-size:10px;color:var(--in);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">⚡ proactive</div>
-              This week in your sector: 3 trends worth acting on. Top: agentic AI in SMB tooling…<span class="caret"></span>
+              <div class="mono" style="font-size:10px;color:var(--in);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px" data-i18n="work.3.win.badge">⚡ proactive</div>
+              <span data-i18n="work.3.win.ai">This week in your sector: 3 trends worth acting on. Top: agentic AI in SMB tooling…<span class="caret"></span></span>
             </div>
           </div>
         </div>
@@ -279,15 +295,15 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 <!-- FEATURES -->
 <section id="features">
   <div class="wrap">
-    <div class="sec-label">// What you get</div>
-    <h2>An AI team that knows your business.</h2>
+    <div class="sec-label" data-i18n="feat.label">// What you get</div>
+    <h2 data-i18n="feat.h2">An AI team that knows your business.</h2>
     <div class="grid">
-      <div class="cell"><div class="ic">/ coordination</div><h3>They delegate</h3><p>Specialists consult each other and show you the hand-off. A real org chart, not isolated chats.</p></div>
-      <div class="cell"><div class="ic">/ memory</div><h3>They remember</h3><p>Persistent memory per assistant. Unlimited semantic memory on Pro.</p></div>
-      <div class="cell"><div class="ic">/ proactivity</div><h3>They work alone</h3><p>Scheduled tasks run on their own and leave the result waiting.</p></div>
-      <div class="cell"><div class="ic">/ documents</div><h3>They read your files</h3><p>Drag in a PDF or spreadsheet and ask about its contents. <span style="color:var(--ink)">Pro</span>.</p></div>
-      <div class="cell"><div class="ic">/ any model</div><h3>Your key, your model</h3><p>Claude, GPT, DeepSeek, Mistral — or fully free and offline with a local model. Switch per assistant in one click.</p></div>
-      <div class="cell"><div class="ic">/ privacy</div><h3>Stays on your Mac</h3><p>No cloud account, no server, no telemetry. Your key and data never leave the machine.</p></div>
+      <div class="cell"><div class="ic" data-i18n="feat.1.ic">/ coordination</div><h3 data-i18n="feat.1.h3">They delegate</h3><p data-i18n="feat.1.p">Specialists consult each other and show you the hand-off. A real org chart, not isolated chats.</p></div>
+      <div class="cell"><div class="ic" data-i18n="feat.2.ic">/ memory</div><h3 data-i18n="feat.2.h3">They remember</h3><p data-i18n="feat.2.p">Persistent memory per assistant. Unlimited semantic memory on Pro.</p></div>
+      <div class="cell"><div class="ic" data-i18n="feat.3.ic">/ proactivity</div><h3 data-i18n="feat.3.h3">They work alone</h3><p data-i18n="feat.3.p">Scheduled tasks run on their own and leave the result waiting.</p></div>
+      <div class="cell"><div class="ic" data-i18n="feat.4.ic">/ documents</div><h3 data-i18n="feat.4.h3">They read your files</h3><p data-i18n="feat.4.p">Drag in a PDF or spreadsheet and ask about its contents. <span style="color:var(--ink)">Pro</span>.</p></div>
+      <div class="cell"><div class="ic" data-i18n="feat.5.ic">/ any model</div><h3 data-i18n="feat.5.h3">Your key, your model</h3><p data-i18n="feat.5.p">Claude, GPT, DeepSeek, Mistral — or fully free and offline with a local model. Switch per assistant in one click.</p></div>
+      <div class="cell"><div class="ic" data-i18n="feat.6.ic">/ privacy</div><h3 data-i18n="feat.6.h3">Stays on your Mac</h3><p data-i18n="feat.6.p">No cloud account, no server, no telemetry. Your key and data never leave the machine.</p></div>
     </div>
   </div>
 </section>
@@ -295,16 +311,16 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 <!-- COMPARE -->
 <section id="compare">
   <div class="wrap">
-    <div class="sec-label">// vs the rest</div>
-    <h2>The only one that coordinates.</h2>
+    <div class="sec-label" data-i18n="cmp.label">// vs the rest</div>
+    <h2 data-i18n="cmp.h2">The only one that coordinates.</h2>
     <div class="cmp">
       <table>
-        <tr><th>&nbsp;</th><th>Price</th><th>BYOK</th><th>Memory</th><th>Agents coordinate</th><th>On-device</th></tr>
-        <tr><td class="app">BoltAI</td><td>$99 once</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="no">No · isolated</td><td class="yes">Yes</td></tr>
-        <tr><td class="app">Raycast AI</td><td>$8–18/mo</td><td class="yes">Yes</td><td>Partial</td><td class="no">No</td><td>Partial</td></tr>
-        <tr><td class="app">Cherry Studio</td><td>Free</td><td class="yes">Yes</td><td>Limited</td><td class="no">No</td><td class="yes">Yes</td></tr>
-        <tr><td class="app">Olympia / Big Team</td><td>$240–470/yr</td><td class="no">No</td><td class="yes">Yes</td><td>Partial</td><td class="no">Cloud</td></tr>
-        <tr class="us"><td class="app">AG3NT</td><td>$99 / $129 once</td><td class="yes">Yes</td><td class="yes">+ vector</td><td class="yes">Yes · real</td><td class="yes">Yes</td></tr>
+        <tr><th>&nbsp;</th><th data-i18n="cmp.th.price">Price</th><th data-i18n="cmp.th.byok">BYOK</th><th data-i18n="cmp.th.memory">Memory</th><th data-i18n="cmp.th.coord">Agents coordinate</th><th data-i18n="cmp.th.ondevice">On-device</th></tr>
+        <tr><td class="app">BoltAI</td><td data-i18n="cmp.boltai.price">$99 once</td><td class="yes" data-i18n="cmp.boltai.byok">Yes</td><td class="yes" data-i18n="cmp.boltai.memory">Yes</td><td class="no" data-i18n="cmp.boltai.coord">No · isolated</td><td class="yes" data-i18n="cmp.boltai.ondevice">Yes</td></tr>
+        <tr><td class="app">Raycast AI</td><td data-i18n="cmp.raycast.price">$8–18/mo</td><td class="yes" data-i18n="cmp.raycast.byok">Yes</td><td data-i18n="cmp.raycast.memory">Partial</td><td class="no" data-i18n="cmp.raycast.coord">No</td><td data-i18n="cmp.raycast.ondevice">Partial</td></tr>
+        <tr><td class="app">Cherry Studio</td><td data-i18n="cmp.cherry.price">Free</td><td class="yes" data-i18n="cmp.cherry.byok">Yes</td><td data-i18n="cmp.cherry.memory">Limited</td><td class="no" data-i18n="cmp.cherry.coord">No</td><td class="yes" data-i18n="cmp.cherry.ondevice">Yes</td></tr>
+        <tr><td class="app">Olympia / Big Team</td><td data-i18n="cmp.olympia.price">$240–470/yr</td><td class="no" data-i18n="cmp.olympia.byok">No</td><td class="yes" data-i18n="cmp.olympia.memory">Yes</td><td data-i18n="cmp.olympia.coord">Partial</td><td class="no" data-i18n="cmp.olympia.ondevice">Cloud</td></tr>
+        <tr class="us"><td class="app">AG3NT</td><td data-i18n="cmp.ag3nt.price">$99 / $129 once</td><td class="yes" data-i18n="cmp.ag3nt.byok">Yes</td><td class="yes" data-i18n="cmp.ag3nt.memory">+ vector</td><td class="yes" data-i18n="cmp.ag3nt.coord">Yes · real</td><td class="yes" data-i18n="cmp.ag3nt.ondevice">Yes</td></tr>
       </table>
     </div>
   </div>
@@ -313,37 +329,37 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 <!-- PRICING -->
 <section id="pricing">
   <div class="wrap">
-    <div class="sec-label">// Pricing</div>
-    <h2>Own it. No subscription.</h2>
-    <p class="section-lede">A cloud "AI team" runs $240–470 a year, forever. AG3NT is a one-time purchase on your Mac.</p>
+    <div class="sec-label" data-i18n="price.label">// Pricing</div>
+    <h2 data-i18n="price.h2">Own it. No subscription.</h2>
+    <p class="section-lede" data-i18n="price.lede">A cloud "AI team" runs $240–470 a year, forever. AG3NT is a one-time purchase on your Mac.</p>
     <div class="prices">
       <div class="price">
-        <div class="pn">Basic</div>
-        <div class="amt">$99</div><div class="per">one-time · 1yr updates</div>
-        <ul><li>5 specialist assistants</li><li>Coordination between assistants</li><li>Scheduled / proactive tasks</li><li>40 memories per assistant</li><li>Any model — cloud or local</li></ul>
-        <a class="btn btn-ghost" style="width:100%;justify-content:center" onclick="openCheckout('basic')">Get Basic</a>
+        <div class="pn" data-i18n="price.basic.name">Basic</div>
+        <div class="amt">$99</div><div class="per" data-i18n="price.basic.per">one-time · 1yr updates</div>
+        <ul><li data-i18n="price.basic.f1">5 specialist assistants</li><li data-i18n="price.basic.f2">Coordination between assistants</li><li data-i18n="price.basic.f3">Scheduled / proactive tasks</li><li data-i18n="price.basic.f4">40 memories per assistant</li><li data-i18n="price.basic.f5">Any model — cloud or local</li></ul>
+        <a class="btn btn-ghost" style="width:100%;justify-content:center" onclick="openCheckout('basic')" data-i18n="price.basic.buy">Get Basic</a>
       </div>
       <div class="price pro">
-        <div class="pn">Pro <span class="pill">unlimited memory</span></div>
-        <div class="amt">$129</div><div class="per">one-time · 1yr updates</div>
-        <ul><li>Everything in Basic</li><li><strong style="color:var(--white);font-weight:500">Unlimited</strong> semantic memory</li><li>Drag in documents (PDF, text, CSV)</li><li>Memory engine 100% on-device</li><li>No per-use cost, ever</li></ul>
-        <a class="btn" style="width:100%;justify-content:center" onclick="openCheckout('pro')">Get Pro</a>
+        <div class="pn"><span data-i18n="price.pro.name">Pro</span> <span class="pill" data-i18n="price.pro.pill">unlimited memory</span></div>
+        <div class="amt">$129</div><div class="per" data-i18n="price.pro.per">one-time · 1yr updates</div>
+        <ul><li data-i18n="price.pro.f1">Everything in Basic</li><li data-i18n="price.pro.f2"><strong style="color:var(--white);font-weight:500">Unlimited</strong> semantic memory</li><li data-i18n="price.pro.f3">Drag in documents (PDF, text, CSV)</li><li data-i18n="price.pro.f4">Memory engine 100% on-device</li><li data-i18n="price.pro.f5">No per-use cost, ever</li></ul>
+        <a class="btn" style="width:100%;justify-content:center" onclick="openCheckout('pro')" data-i18n="price.pro.buy">Get Pro</a>
       </div>
     </div>
-    <p class="cta-note">14-day trial · 30-day money-back · macOS 14+</p>
+    <p class="cta-note" data-i18n="price.note">14-day trial · 30-day money-back · macOS 14+</p>
   </div>
 </section>
 
 <!-- FAQ -->
 <section>
   <div class="wrap">
-    <div class="sec-label">// Questions</div>
-    <h2>Good to know.</h2>
+    <div class="sec-label" data-i18n="faq.label">// Questions</div>
+    <h2 data-i18n="faq.h2">Good to know.</h2>
     <div style="margin-top:36px">
-      <div class="faq-item"><h4>Do I need an OpenAI or Claude account?</h4><p>You bring your own API key (Claude, GPT, DeepSeek, Mistral) — or run fully free with a local model via Ollama. AG3NT never charges per use; you only pay your provider, if any.</p></div>
-      <div class="faq-item"><h4>Where does my data go?</h4><p>Nowhere. Everything runs on your Mac. API keys live in your macOS Keychain. No cloud account, no server, no telemetry of your content.</p></div>
-      <div class="faq-item"><h4>What's the difference between Basic and Pro?</h4><p>Basic gives each assistant 40 memories. Pro makes memory unlimited (semantic search) and lets you drop in documents. The Pro memory engine downloads once and runs entirely on-device.</p></div>
-      <div class="faq-item"><h4>Subscription?</h4><p>No. One-time purchase, yours forever, with a year of free updates. You already pay your AI provider — we don't double-charge you.</p></div>
+      <div class="faq-item"><h4 data-i18n="faq.1.q">Do I need an OpenAI or Claude account?</h4><p data-i18n="faq.1.a">You bring your own API key (Claude, GPT, DeepSeek, Mistral) — or run fully free with a local model via Ollama. AG3NT never charges per use; you only pay your provider, if any.</p></div>
+      <div class="faq-item"><h4 data-i18n="faq.2.q">Where does my data go?</h4><p data-i18n="faq.2.a">Nowhere. Everything runs on your Mac. API keys live in your macOS Keychain. No cloud account, no server, no telemetry of your content.</p></div>
+      <div class="faq-item"><h4 data-i18n="faq.3.q">What's the difference between Basic and Pro?</h4><p data-i18n="faq.3.a">Basic gives each assistant 40 memories. Pro makes memory unlimited (semantic search) and lets you drop in documents. The Pro memory engine downloads once and runs entirely on-device.</p></div>
+      <div class="faq-item"><h4 data-i18n="faq.4.q">Subscription?</h4><p data-i18n="faq.4.a">No. One-time purchase, yours forever, with a year of free updates. You already pay your AI provider — we don't double-charge you.</p></div>
     </div>
   </div>
 </section>
@@ -351,18 +367,148 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 <!-- MORE -->
 <section>
   <div class="wrap">
-    <div class="sec-label">// More from Perfect Paradox</div>
-    <style>@keyframes ppmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}.ppcar:hover .pptrack{animation-play-state:paused}</style><div class="ppcar" style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)"><div class="pptrack" style="display:flex;gap:18px;width:max-content;animation:ppmarq 55s linear infinite"><a href="https://curtain.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/curtain.png" alt="Curtain" width="64" height="64" style="border-radius:14px"><div class="nm">Curtain</div><div class="ds">Auto do-not-disturb on share</div></a><a href="https://notebound.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/notebound.png" alt="Notebound" width="64" height="64" style="border-radius:14px"><div class="nm">Notebound</div><div class="ds">Markdown to Apple Notes</div></a><a href="https://everyfile.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/everyfile.png" alt="Everyfile" width="64" height="64" style="border-radius:14px"><div class="nm">Everyfile</div><div class="ds">Instant file search</div></a><a href="https://screenshelf.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/screenshelf.png" alt="Screenshelf" width="64" height="64" style="border-radius:14px"><div class="nm">Screenshelf</div><div class="ds">Search inside screenshots</div></a><a href="https://evergreen.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/evergreen.png" alt="Evergreen" width="64" height="64" style="border-radius:14px"><div class="nm">Evergreen</div><div class="ds">Every app up to date</div></a><a href="https://slimr.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/slimr.png" alt="Slimr" width="64" height="64" style="border-radius:14px"><div class="nm">Slimr</div><div class="ds">Compress, OCR & PDF tools</div></a><a href="https://castly.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/castly.png" alt="Castly" width="64" height="64" style="border-radius:14px"><div class="nm">Castly</div><div class="ds">Transform text as you paste</div></a><a href="https://lightcap.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/lightcap.png" alt="Lightcap" width="64" height="64" style="border-radius:14px"><div class="nm">Lightcap</div><div class="ds">10-second screen GIFs</div></a><a href="https://scrubd.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/scrubd.png" alt="Scrubd" width="64" height="64" style="border-radius:14px"><div class="nm">Scrubd</div><div class="ds">Clean metadata before you share</div></a><a href="https://curtain.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/curtain.png" alt="Curtain" width="64" height="64" style="border-radius:14px"><div class="nm">Curtain</div><div class="ds">Auto do-not-disturb on share</div></a><a href="https://notebound.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/notebound.png" alt="Notebound" width="64" height="64" style="border-radius:14px"><div class="nm">Notebound</div><div class="ds">Markdown to Apple Notes</div></a><a href="https://everyfile.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/everyfile.png" alt="Everyfile" width="64" height="64" style="border-radius:14px"><div class="nm">Everyfile</div><div class="ds">Instant file search</div></a><a href="https://screenshelf.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/screenshelf.png" alt="Screenshelf" width="64" height="64" style="border-radius:14px"><div class="nm">Screenshelf</div><div class="ds">Search inside screenshots</div></a><a href="https://evergreen.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/evergreen.png" alt="Evergreen" width="64" height="64" style="border-radius:14px"><div class="nm">Evergreen</div><div class="ds">Every app up to date</div></a><a href="https://slimr.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/slimr.png" alt="Slimr" width="64" height="64" style="border-radius:14px"><div class="nm">Slimr</div><div class="ds">Compress, OCR & PDF tools</div></a><a href="https://castly.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/castly.png" alt="Castly" width="64" height="64" style="border-radius:14px"><div class="nm">Castly</div><div class="ds">Transform text as you paste</div></a><a href="https://lightcap.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/lightcap.png" alt="Lightcap" width="64" height="64" style="border-radius:14px"><div class="nm">Lightcap</div><div class="ds">10-second screen GIFs</div></a><a href="https://scrubd.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/scrubd.png" alt="Scrubd" width="64" height="64" style="border-radius:14px"><div class="nm">Scrubd</div><div class="ds">Clean metadata before you share</div></a></div></div>
+    <div class="sec-label" data-i18n="more.label">// More from Perfect Paradox</div>
+    <style>@keyframes ppmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}.ppcar:hover .pptrack{animation-play-state:paused}</style><div class="ppcar" style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)"><div class="pptrack" style="display:flex;gap:18px;width:max-content;animation:ppmarq 55s linear infinite"><a href="https://curtain.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/curtain.png" alt="Curtain" width="64" height="64" style="border-radius:14px"><div class="nm">Curtain</div><div class="ds" data-i18n="more.curtain">Auto do-not-disturb on share</div></a><a href="https://notebound.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/notebound.png" alt="Notebound" width="64" height="64" style="border-radius:14px"><div class="nm">Notebound</div><div class="ds" data-i18n="more.notebound">Markdown to Apple Notes</div></a><a href="https://everyfile.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/everyfile.png" alt="Everyfile" width="64" height="64" style="border-radius:14px"><div class="nm">Everyfile</div><div class="ds" data-i18n="more.everyfile">Instant file search</div></a><a href="https://screenshelf.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/screenshelf.png" alt="Screenshelf" width="64" height="64" style="border-radius:14px"><div class="nm">Screenshelf</div><div class="ds" data-i18n="more.screenshelf">Search inside screenshots</div></a><a href="https://evergreen.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/evergreen.png" alt="Evergreen" width="64" height="64" style="border-radius:14px"><div class="nm">Evergreen</div><div class="ds" data-i18n="more.evergreen">Every app up to date</div></a><a href="https://slimr.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/slimr.png" alt="Slimr" width="64" height="64" style="border-radius:14px"><div class="nm">Slimr</div><div class="ds" data-i18n="more.slimr">Compress, OCR & PDF tools</div></a><a href="https://castly.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/castly.png" alt="Castly" width="64" height="64" style="border-radius:14px"><div class="nm">Castly</div><div class="ds" data-i18n="more.castly">Transform text as you paste</div></a><a href="https://lightcap.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/lightcap.png" alt="Lightcap" width="64" height="64" style="border-radius:14px"><div class="nm">Lightcap</div><div class="ds" data-i18n="more.lightcap">10-second screen GIFs</div></a><a href="https://scrubd.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/scrubd.png" alt="Scrubd" width="64" height="64" style="border-radius:14px"><div class="nm">Scrubd</div><div class="ds" data-i18n="more.scrubd">Clean metadata before you share</div></a><a href="https://curtain.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/curtain.png" alt="Curtain" width="64" height="64" style="border-radius:14px"><div class="nm">Curtain</div><div class="ds" data-i18n="more.curtain">Auto do-not-disturb on share</div></a><a href="https://notebound.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/notebound.png" alt="Notebound" width="64" height="64" style="border-radius:14px"><div class="nm">Notebound</div><div class="ds" data-i18n="more.notebound">Markdown to Apple Notes</div></a><a href="https://everyfile.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/everyfile.png" alt="Everyfile" width="64" height="64" style="border-radius:14px"><div class="nm">Everyfile</div><div class="ds" data-i18n="more.everyfile">Instant file search</div></a><a href="https://screenshelf.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/screenshelf.png" alt="Screenshelf" width="64" height="64" style="border-radius:14px"><div class="nm">Screenshelf</div><div class="ds" data-i18n="more.screenshelf">Search inside screenshots</div></a><a href="https://evergreen.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/evergreen.png" alt="Evergreen" width="64" height="64" style="border-radius:14px"><div class="nm">Evergreen</div><div class="ds" data-i18n="more.evergreen">Every app up to date</div></a><a href="https://slimr.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/slimr.png" alt="Slimr" width="64" height="64" style="border-radius:14px"><div class="nm">Slimr</div><div class="ds" data-i18n="more.slimr">Compress, OCR & PDF tools</div></a><a href="https://castly.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/castly.png" alt="Castly" width="64" height="64" style="border-radius:14px"><div class="nm">Castly</div><div class="ds" data-i18n="more.castly">Transform text as you paste</div></a><a href="https://lightcap.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/lightcap.png" alt="Lightcap" width="64" height="64" style="border-radius:14px"><div class="nm">Lightcap</div><div class="ds" data-i18n="more.lightcap">10-second screen GIFs</div></a><a href="https://scrubd.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/scrubd.png" alt="Scrubd" width="64" height="64" style="border-radius:14px"><div class="nm">Scrubd</div><div class="ds" data-i18n="more.scrubd">Clean metadata before you share</div></a></div></div>
   </div>
 </section>
 
 <footer>
   <div class="wrap fr">
-    <div class="mono">© 2026 Perfect Paradox Ltd · NI739317</div>
-    <div><a href="/legal/privacy.html">Privacy</a> · <a href="/legal/terms.html">Terms</a> · <a href="/legal/refund.html">Refund</a> · <a href="mailto:info@perfectparadox.co.uk">info@perfectparadox.co.uk</a></div>
+    <div class="mono" data-i18n="footer.copy">© 2026 Perfect Paradox Ltd · NI739317</div>
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <span><a href="/legal/privacy.html" data-i18n="footer.privacy">Privacy</a> · <a href="/legal/terms.html" data-i18n="footer.terms">Terms</a> · <a href="/legal/refund.html" data-i18n="footer.refund">Refund</a> · <a href="mailto:info@perfectparadox.co.uk">info@perfectparadox.co.uk</a></span>
+      <span class="i18n-picker">
+        <label for="langSelect" class="i18n-globe" aria-hidden="true">&#127760;</label>
+        <select id="langSelect" aria-label="Language / Idioma"></select>
+      </span>
+    </div>
   </div>
 </footer>
 </div>
+
+<!-- i18n: motor multiidioma client-side (NO toca Paddle ni precios). Patrón reutilizable de castly-site. -->
+<script src="translations.js"></script>
+<script>
+(function () {
+  var I18N = window.I18N || {};
+  var LANGS = I18N.__langs || { en: "English" };
+  var SUPPORTED = Object.keys(LANGS);
+  var DEFAULT = "en";
+  var STORE_KEY = "ag3nt_lang";
+
+  function normalize(code) {
+    if (!code) return null;
+    code = code.trim();
+    if (SUPPORTED.indexOf(code) !== -1) return code;          // match exacto (incl. zh-Hans)
+    var lower = code.toLowerCase();
+    // chino → zh-Hans (simplificado) por defecto
+    if (lower.indexOf("zh") === 0) return SUPPORTED.indexOf("zh-Hans") !== -1 ? "zh-Hans" : null;
+    var base = lower.split("-")[0];                            // "es-419" → "es"
+    for (var i = 0; i < SUPPORTED.length; i++) {
+      if (SUPPORTED[i].toLowerCase() === base || SUPPORTED[i].toLowerCase().split("-")[0] === base) {
+        return SUPPORTED[i];
+      }
+    }
+    return null;
+  }
+
+  function detect() {
+    try {
+      var qs = new URLSearchParams(window.location.search).get("lang");
+      var fromUrl = normalize(qs);
+      if (fromUrl) return fromUrl;
+    } catch (e) {}
+    try {
+      var saved = normalize(localStorage.getItem(STORE_KEY));
+      if (saved) return saved;
+    } catch (e) {}
+    var navs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+    for (var i = 0; i < navs.length; i++) {
+      var n = normalize(navs[i]);
+      if (n) return n;
+    }
+    return DEFAULT;
+  }
+
+  function apply(lang) {
+    var dict = I18N[lang] || I18N[DEFAULT] || {};
+    var fallback = I18N[DEFAULT] || {};
+    function val(key) { return (dict[key] != null) ? dict[key] : fallback[key]; }
+
+    // 1) contenido de texto (permite HTML inline: <br>, <strong>, <span>, →, etc.)
+    var nodes = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < nodes.length; i++) {
+      var k = nodes[i].getAttribute("data-i18n");
+      var v = val(k);
+      if (v != null) nodes[i].innerHTML = v;
+    }
+    // 2) atributos (content/placeholder/aria-...) → data-i18n-attr="attr:clave[,attr2:clave2]"
+    var attrNodes = document.querySelectorAll("[data-i18n-attr]");
+    for (var j = 0; j < attrNodes.length; j++) {
+      var spec = attrNodes[j].getAttribute("data-i18n-attr");
+      var pairs = spec.split(",");
+      for (var p = 0; p < pairs.length; p++) {
+        var parts = pairs[p].split(":");
+        if (parts.length === 2) {
+          var av = val(parts[1].trim());
+          if (av != null) attrNodes[j].setAttribute(parts[0].trim(), av.replace(/&amp;/g, "&"));
+        }
+      }
+    }
+    // 3) <html lang>
+    document.documentElement.setAttribute("lang", lang);
+    // 4) exponer el idioma activo para el typewriter del hero (animación JS)
+    window.__ag3ntLang = lang;
+    try { document.dispatchEvent(new CustomEvent("i18n:applied", { detail: { lang: lang } })); } catch (e) {}
+  }
+
+  function persist(lang) {
+    try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+  }
+
+  function syncUrl(lang) {
+    try {
+      var url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      history.replaceState(null, "", url.toString());
+    } catch (e) {}
+  }
+
+  function buildSelector(current) {
+    var sel = document.getElementById("langSelect");
+    if (!sel) return;
+    sel.innerHTML = "";
+    for (var i = 0; i < SUPPORTED.length; i++) {
+      var code = SUPPORTED[i];
+      var opt = document.createElement("option");
+      opt.value = code;
+      opt.textContent = LANGS[code];
+      if (code === current) opt.selected = true;
+      sel.appendChild(opt);
+    }
+    sel.addEventListener("change", function () {
+      var lang = sel.value;
+      apply(lang);
+      persist(lang);
+      syncUrl(lang);
+    });
+  }
+
+  function init() {
+    var lang = detect();
+    apply(lang);
+    persist(lang);
+    syncUrl(lang);
+    buildSelector(lang);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
 
 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 <script>
@@ -449,17 +595,30 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
   })();
 
   // 2) Hero escribiéndose en bucle (muestra el streaming del producto).
+  //    El texto se toma del diccionario i18n del idioma activo (clave hero.type),
+  //    con fallback al inglés. NO toca Paddle.
   (function(){
     const el = document.getElementById('hero-type'); if(!el) return;
-    const full = 'Top client: Acme — £92,000 (62%). Here’s a 3-email reactivation sequence tailored to them.';
+    const FALLBACK = 'Top client: Acme — £92,000 (62%). Here’s a 3-email reactivation sequence tailored to them.';
+    function currentText(){
+      try{
+        const I = window.I18N || {};
+        const lang = window.__ag3ntLang || 'en';
+        const dict = I[lang] || I.en || {};
+        return dict['hero.type'] || (I.en && I.en['hero.type']) || FALLBACK;
+      }catch(e){ return FALLBACK; }
+    }
+    let full = currentText();
     let i=0, dir=1;
     function step(){
       el.textContent = full.slice(0,i);
       if(dir>0){ i++; if(i>full.length){ dir=0; setTimeout(()=>{dir=-1;}, 2600); } }
-      else if(dir<0){ i-=2; if(i<=0){ i=0; dir=1; setTimeout(loop, 600); return; } }
+      else if(dir<0){ i-=2; if(i<=0){ i=0; dir=1; full=currentText(); setTimeout(loop, 600); return; } }
       if(dir!==0) setTimeout(step, dir>0?32:12);
     }
     function loop(){ step(); }
+    // si cambian de idioma, reinicia el texto en el siguiente ciclo de borrado
+    document.addEventListener('i18n:applied', function(){ if(dir>=0){ dir=-1; } });
     loop();
   })();
 
