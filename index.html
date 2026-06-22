@@ -155,6 +155,31 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
   .grid,.prices{grid-template-columns:1fr}
   .more-grid{grid-template-columns:repeat(2,1fr)}
 }
+/* multiidioma */
+.langbadge{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mk);border:1px solid var(--mk);padding:7px 13px}
+.langs-sec{text-align:center}
+.langs-row{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(20px,3.2vw,32px);line-height:1.25;letter-spacing:-.01em;color:var(--white);margin-top:8px}
+.langs-row .sep{color:var(--mk);margin:0 8px;font-weight:400}
+.langs-sec p{font-size:15px;line-height:1.6;color:var(--mut);max-width:580px;margin:18px auto 0}
+/* feedback */
+.fb-form{display:flex;flex-direction:column;gap:16px;max-width:620px;margin-top:36px}
+.fb-types{display:flex;gap:10px;flex-wrap:wrap}
+.fb-chip{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);background:transparent;border:1px solid var(--line);padding:10px 16px;cursor:pointer;transition:.3s}
+.fb-chip:hover{color:var(--white);border-color:var(--mk)}
+.fb-chip.on{color:#0E0E0E;background:var(--mk);border-color:var(--mk)}
+.fb-field{display:flex;flex-direction:column;gap:7px}
+.fb-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.fb-input,.fb-text{font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:13px 15px;width:100%;transition:.3s}
+.fb-text{min-height:130px;resize:vertical;line-height:1.55}
+.fb-input:focus,.fb-text:focus{outline:none;border-color:var(--mk)}
+.fb-input::placeholder,.fb-text::placeholder{color:#5a5a5a}
+.fb-hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.fb-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:4px}
+.fb-note{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut);max-width:300px;line-height:1.5}
+.fb-msg{font-size:14px;line-height:1.5;display:none}
+.fb-msg.ok{color:var(--ct);display:block}
+.fb-msg.err{color:var(--sp);display:block}
+.fb-form .btn[disabled]{opacity:.55;cursor:wait}
 </style>
 <script defer data-domain="ag3nt.perfectparadox.co.uk" src="https://analytics.dchv.co.uk/js/script.js"></script>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -189,6 +214,7 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
       <a class="btn" href="https://github.com/perfectparadoxltd/ag3nt-site/releases/download/v0.1.1/AG3NT_0.1.1_aarch64.dmg" data-i18n="hero.download">Download — free trial</a>
       <a class="btn btn-ghost" href="#pricing" data-i18n="hero.pricing">See pricing</a>
     </div>
+    <div style="margin-top:20px"><span class="langbadge">&#127760; <span data-i18n="hero.langs">8 languages</span></span></div>
     <p class="cta-note" data-i18n="hero.note">Free 14-day trial · then $99 one-time · macOS 14+ (Apple Silicon) · Works with Claude, GPT, DeepSeek or local models</p>
 
     <div class="win" style="margin-top:56px">
@@ -326,6 +352,15 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
   </div>
 </section>
 
+<!-- LANGUAGES -->
+<section class="langs-sec" id="languages">
+  <div class="wrap">
+    <div class="sec-label" data-i18n="langs.label">// Speaks your language</div>
+    <div class="langs-row">English<span class="sep">·</span>Español<span class="sep">·</span>Français<span class="sep">·</span>Deutsch<span class="sep">·</span>Italiano<span class="sep">·</span>Português<span class="sep">·</span>日本語<span class="sep">·</span>简体中文</div>
+    <p data-i18n="langs.body">AG3NT's whole interface is localized into 8 languages — it follows your Mac and speaks your language out of the box. No setup, nothing to switch on.</p>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section id="pricing">
   <div class="wrap">
@@ -369,6 +404,37 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
   <div class="wrap">
     <div class="sec-label" data-i18n="more.label">// More from Perfect Paradox</div>
     <style>@keyframes ppmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}.ppcar:hover .pptrack{animation-play-state:paused}</style><div class="ppcar" style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)"><div class="pptrack" style="display:flex;gap:18px;width:max-content;animation:ppmarq 55s linear infinite"><a href="https://curtain.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/curtain.png" alt="Curtain" width="64" height="64" style="border-radius:14px"><div class="nm">Curtain</div><div class="ds" data-i18n="more.curtain">Auto do-not-disturb on share</div></a><a href="https://notebound.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/notebound.png" alt="Notebound" width="64" height="64" style="border-radius:14px"><div class="nm">Notebound</div><div class="ds" data-i18n="more.notebound">Markdown to Apple Notes</div></a><a href="https://everyfile.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/everyfile.png" alt="Everyfile" width="64" height="64" style="border-radius:14px"><div class="nm">Everyfile</div><div class="ds" data-i18n="more.everyfile">Instant file search</div></a><a href="https://screenshelf.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/screenshelf.png" alt="Screenshelf" width="64" height="64" style="border-radius:14px"><div class="nm">Screenshelf</div><div class="ds" data-i18n="more.screenshelf">Search inside screenshots</div></a><a href="https://evergreen.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/evergreen.png" alt="Evergreen" width="64" height="64" style="border-radius:14px"><div class="nm">Evergreen</div><div class="ds" data-i18n="more.evergreen">Every app up to date</div></a><a href="https://slimr.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/slimr.png" alt="Slimr" width="64" height="64" style="border-radius:14px"><div class="nm">Slimr</div><div class="ds" data-i18n="more.slimr">Compress, OCR & PDF tools</div></a><a href="https://castly.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/castly.png" alt="Castly" width="64" height="64" style="border-radius:14px"><div class="nm">Castly</div><div class="ds" data-i18n="more.castly">Transform text as you paste</div></a><a href="https://lightcap.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/lightcap.png" alt="Lightcap" width="64" height="64" style="border-radius:14px"><div class="nm">Lightcap</div><div class="ds" data-i18n="more.lightcap">10-second screen GIFs</div></a><a href="https://scrubd.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/scrubd.png" alt="Scrubd" width="64" height="64" style="border-radius:14px"><div class="nm">Scrubd</div><div class="ds" data-i18n="more.scrubd">Clean metadata before you share</div></a><a href="https://curtain.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/curtain.png" alt="Curtain" width="64" height="64" style="border-radius:14px"><div class="nm">Curtain</div><div class="ds" data-i18n="more.curtain">Auto do-not-disturb on share</div></a><a href="https://notebound.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/notebound.png" alt="Notebound" width="64" height="64" style="border-radius:14px"><div class="nm">Notebound</div><div class="ds" data-i18n="more.notebound">Markdown to Apple Notes</div></a><a href="https://everyfile.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/everyfile.png" alt="Everyfile" width="64" height="64" style="border-radius:14px"><div class="nm">Everyfile</div><div class="ds" data-i18n="more.everyfile">Instant file search</div></a><a href="https://screenshelf.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/screenshelf.png" alt="Screenshelf" width="64" height="64" style="border-radius:14px"><div class="nm">Screenshelf</div><div class="ds" data-i18n="more.screenshelf">Search inside screenshots</div></a><a href="https://evergreen.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/evergreen.png" alt="Evergreen" width="64" height="64" style="border-radius:14px"><div class="nm">Evergreen</div><div class="ds" data-i18n="more.evergreen">Every app up to date</div></a><a href="https://slimr.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/slimr.png" alt="Slimr" width="64" height="64" style="border-radius:14px"><div class="nm">Slimr</div><div class="ds" data-i18n="more.slimr">Compress, OCR & PDF tools</div></a><a href="https://castly.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/castly.png" alt="Castly" width="64" height="64" style="border-radius:14px"><div class="nm">Castly</div><div class="ds" data-i18n="more.castly">Transform text as you paste</div></a><a href="https://lightcap.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/lightcap.png" alt="Lightcap" width="64" height="64" style="border-radius:14px"><div class="nm">Lightcap</div><div class="ds" data-i18n="more.lightcap">10-second screen GIFs</div></a><a href="https://scrubd.perfectparadox.co.uk" style="flex:0 0 184px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 18px;border:1px solid var(--line);text-decoration:none;text-align:center;background:var(--bg);transition:.3s" onmouseover="this.style.background='var(--vessel)'" onmouseout="this.style.background='var(--bg)'"><img src="icons/scrubd.png" alt="Scrubd" width="64" height="64" style="border-radius:14px"><div class="nm">Scrubd</div><div class="ds" data-i18n="more.scrubd">Clean metadata before you share</div></a></div></div>
+  </div>
+</section>
+
+<!-- FEEDBACK -->
+<section id="feedback">
+  <div class="wrap">
+    <div class="sec-label" data-i18n="fb.label">// Feedback</div>
+    <h2 data-i18n="fb.title">Help shape AG3NT</h2>
+    <p class="section-lede" data-i18n="fb.lead">Found a bug, or wish it did one more thing? Tell us — every message goes straight to the people who build AG3NT. No account, no tracking.</p>
+    <form class="fb-form" id="fbForm" novalidate>
+      <div class="fb-types" id="fbTypes" role="group" aria-label="Feedback type">
+        <button type="button" class="fb-chip on" data-val="idea" data-i18n="fb.type.idea">Idea</button>
+        <button type="button" class="fb-chip" data-val="bug" data-i18n="fb.type.bug">Bug</button>
+        <button type="button" class="fb-chip" data-val="praise" data-i18n="fb.type.praise">Praise</button>
+        <button type="button" class="fb-chip" data-val="other" data-i18n="fb.type.other">Other</button>
+      </div>
+      <div class="fb-field">
+        <label class="fb-label" for="fbMsg" data-i18n="fb.msg.label">Your message</label>
+        <textarea class="fb-text" id="fbMsg" name="message" required placeholder="What's on your mind?" data-i18n-attr="placeholder:fb.msg.ph"></textarea>
+      </div>
+      <div class="fb-field">
+        <label class="fb-label" for="fbEmail" data-i18n="fb.email.label">Email (optional — so we can reply)</label>
+        <input class="fb-input" id="fbEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" data-i18n-attr="placeholder:fb.email.ph">
+      </div>
+      <input class="fb-hp" type="text" id="fbHp" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="fb-row">
+        <button type="submit" class="btn" id="fbSend" data-i18n="fb.send">Send feedback →</button>
+        <span class="fb-note" data-i18n="fb.note">We read everything. Honest feedback shapes the next update.</span>
+      </div>
+      <div class="fb-msg" id="fbResult" role="status" aria-live="polite"></div>
+    </form>
   </div>
 </section>
 
@@ -637,6 +703,50 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
     }, {threshold:.4});
     wins.forEach(w=>io.observe(w));
   })();
+</script>
+<!-- feedback: form → Cloudflare Worker (/feedback) → Resend → feedback@perfectparadox.co.uk -->
+<script>
+(function(){
+  var FEEDBACK_URL = 'https://pp-license-fulfillment.diegochavesta.workers.dev/feedback';
+  var APP = 'ag3nt';
+  var form = document.getElementById('fbForm');
+  if (!form) return;
+  var types = document.getElementById('fbTypes');
+  var chosen = 'idea';
+  types.addEventListener('click', function(e){
+    var chip = e.target.closest('.fb-chip'); if (!chip) return;
+    chosen = chip.getAttribute('data-val');
+    var all = types.querySelectorAll('.fb-chip');
+    for (var i=0;i<all.length;i++) all[i].classList.toggle('on', all[i]===chip);
+  });
+  var msgEl = document.getElementById('fbMsg');
+  var emailEl = document.getElementById('fbEmail');
+  var hpEl = document.getElementById('fbHp');
+  var btn = document.getElementById('fbSend');
+  var out = document.getElementById('fbResult');
+  function dict(){ try { var L=document.documentElement.getAttribute('lang')||'en'; return (window.I18N&&window.I18N[L])||{}; } catch(e){ return {}; } }
+  function t(k,fb){ var d=dict(); return d[k]!=null?d[k]:fb; }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var message = (msgEl.value||'').trim();
+    out.className = 'fb-msg';
+    if (message.length < 3){ out.className='fb-msg err'; out.textContent = t('fb.result.empty','Please write a short message first.'); msgEl.focus(); return; }
+    btn.disabled = true; var label = btn.innerHTML; btn.innerHTML = t('fb.sending','Sending…');
+    fetch(FEEDBACK_URL, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ app:APP, type:chosen, message:message, email:(emailEl.value||'').trim(), hp:(hpEl.value||'') })
+    }).then(function(r){ return r.ok ? r.json() : Promise.reject(r); })
+    .then(function(d){
+      if (d && d.ok){ out.className='fb-msg ok'; out.textContent = t('fb.result.ok','Thank you — your feedback is on its way to the team.'); form.reset(); chosen='idea'; var all=types.querySelectorAll('.fb-chip'); for(var i=0;i<all.length;i++) all[i].classList.toggle('on', all[i].getAttribute('data-val')==='idea'); }
+      else throw new Error('bad');
+    })
+    .catch(function(){
+      out.className='fb-msg err';
+      out.innerHTML = t('fb.result.err','Could not send right now. You can email us at ') + '<a href="mailto:feedback@perfectparadox.co.uk?subject=ag3nt%20feedback" style="color:var(--mk)">feedback@perfectparadox.co.uk</a>.';
+    })
+    .finally(function(){ btn.disabled=false; btn.innerHTML=label; });
+  });
+})();
 </script>
 </body>
 </html>
