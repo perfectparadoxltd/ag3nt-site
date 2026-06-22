@@ -27,6 +27,11 @@ window.I18N = {
 
   /* ===================================================================== EN */
   en: {
+    /* changelog */
+    "news.label": "// What's new",
+    "news.latest": "Latest",
+    "news.011.1": "Security hardening and reliability fixes, plus one-click upgrade from Basic to Pro.",
+    "news.010.1": "Initial release: your on-device AI team — specialist assistants that coordinate, remember your business, run proactive scheduled tasks, and work with any model (cloud or local, BYOK).",
     /* idiomas + feedback */
     "hero.langs": "8 languages",
     "langs.label": "// Speaks your language",
@@ -217,6 +222,11 @@ window.I18N = {
 
   /* ===================================================================== ES */
   es: {
+    /* changelog */
+    "news.label": "// Novedades",
+    "news.latest": "Última",
+    "news.011.1": "Refuerzo de seguridad y mejoras de fiabilidad, además de la mejora a Pro con un clic desde Basic.",
+    "news.010.1": "Primera versión: tu equipo de IA en el Mac — asistentes especialistas que se coordinan, recuerdan tu negocio, ejecutan tareas programadas y funcionan con cualquier modelo (en la nube o local, con tu propia clave).",
     /* idiomas + feedback */
     "hero.langs": "8 idiomas",
     "langs.label": "// Habla tu idioma",
@@ -407,6 +417,11 @@ window.I18N = {
 
   /* ===================================================================== FR */
   fr: {
+    /* changelog */
+    "news.label": "// Nouveautés",
+    "news.latest": "Récent",
+    "news.011.1": "Renforcement de la sécurité et corrections de fiabilité, plus la mise à niveau vers Pro en un clic depuis Basic.",
+    "news.010.1": "Première version : votre équipe d'IA sur le Mac — des assistants spécialisés qui se coordonnent, mémorisent votre activité, exécutent des tâches planifiées et fonctionnent avec n'importe quel modèle (cloud ou local, votre propre clé).",
     /* idiomas + feedback */
     "hero.langs": "8 langues",
     "langs.label": "// Parle votre langue",
@@ -597,6 +612,11 @@ window.I18N = {
 
   /* ===================================================================== DE */
   de: {
+    /* changelog */
+    "news.label": "// Neuigkeiten",
+    "news.latest": "Neu",
+    "news.011.1": "Sicherheitshärtung und Zuverlässigkeitskorrekturen, plus Upgrade von Basic auf Pro mit einem Klick.",
+    "news.010.1": "Erste Version: dein KI-Team auf dem Mac — Spezialassistenten, die sich abstimmen, sich an dein Geschäft erinnern, geplante Aufgaben ausführen und mit jedem Modell arbeiten (Cloud oder lokal, eigener Schlüssel).",
     /* idiomas + feedback */
     "hero.langs": "8 Sprachen",
     "langs.label": "// Spricht deine Sprache",
@@ -787,6 +807,11 @@ window.I18N = {
 
   /* ===================================================================== IT */
   it: {
+    /* changelog */
+    "news.label": "// Novità",
+    "news.latest": "Ultima",
+    "news.011.1": "Rafforzamento della sicurezza e correzioni di affidabilità, più l'upgrade a Pro con un clic da Basic.",
+    "news.010.1": "Prima versione: il tuo team di IA sul Mac — assistenti specializzati che si coordinano, ricordano la tua attività, eseguono attività pianificate e funzionano con qualsiasi modello (cloud o locale, con la tua chiave).",
     /* idiomas + feedback */
     "hero.langs": "8 lingue",
     "langs.label": "// Parla la tua lingua",
@@ -977,6 +1002,11 @@ window.I18N = {
 
   /* ===================================================================== PT */
   pt: {
+    /* changelog */
+    "news.label": "// Novidades",
+    "news.latest": "Recente",
+    "news.011.1": "Reforço de segurança e correções de fiabilidade, além da atualização para Pro com um clique a partir do Basic.",
+    "news.010.1": "Primeira versão: a sua equipa de IA no Mac — assistentes especializados que se coordenam, recordam o seu negócio, executam tarefas agendadas e funcionam com qualquer modelo (na nuvem ou local, com a sua própria chave).",
     /* idiomas + feedback */
     "hero.langs": "8 idiomas",
     "langs.label": "// Fala a sua língua",
@@ -1167,6 +1197,11 @@ window.I18N = {
 
   /* ===================================================================== JA */
   ja: {
+    /* changelog */
+    "news.label": "// 新着情報",
+    "news.latest": "最新",
+    "news.011.1": "セキュリティ強化と安定性の修正、さらに Basic から Pro へワンクリックでアップグレード。",
+    "news.010.1": "初回リリース：Mac 上で動くあなたの AI チーム——連携し、ビジネスを記憶し、予約タスクを自動実行する専門アシスタント。どのモデルでも利用可能（クラウドまたはローカル、自分のキーで）。",
     /* idiomas + feedback */
     "hero.langs": "8言語",
     "langs.label": "// あなたの言語で",
@@ -1357,6 +1392,11 @@ window.I18N = {
 
   /* ===================================================================== ZH-HANS */
   "zh-Hans": {
+    /* changelog */
+    "news.label": "// 新功能",
+    "news.latest": "最新",
+    "news.011.1": "安全加固与稳定性修复，并支持从 Basic 一键升级到 Pro。",
+    "news.010.1": "首个版本：在你的 Mac 上运行的 AI 团队——会协作、记住你的业务、自动执行定时任务的专业助手，支持任意模型（云端或本地，使用你自己的密钥）。",
     /* idiomas + feedback */
     "hero.langs": "8 种语言",
     "langs.label": "// 说你的语言",
