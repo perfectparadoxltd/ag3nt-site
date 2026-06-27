@@ -352,6 +352,31 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 </section>
 
 <!-- COMPARE -->
+<style>
+#privacy .priv-flow{display:flex;align-items:stretch;gap:0;margin-top:36px;flex-wrap:wrap}
+#privacy .priv-box{flex:1;min-width:220px;border:1px solid var(--line);background:var(--bg);padding:26px 24px}
+#privacy .priv-box.on{border-color:var(--mk);box-shadow:0 0 0 1px var(--mk) inset}
+#privacy .pb-t{font-family:'Space Grotesk';font-weight:600;font-size:18px;color:var(--white);margin-bottom:6px}
+#privacy .pb-s{font-size:13px;color:var(--mut);line-height:1.5}
+#privacy .priv-arrow{display:flex;align-items:center;justify-content:center;padding:0 18px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mk);white-space:nowrap}
+#privacy .priv-never{margin-top:22px;display:flex;align-items:center;gap:12px;border:1px solid var(--line-soft);padding:16px 20px;font-size:15px;color:var(--ink)}
+#privacy .priv-never .x{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;flex:0 0 auto;border:1px solid var(--sp);color:var(--sp);font-size:13px}
+@media(max-width:720px){#privacy .priv-arrow{width:100%;padding:14px 0;transform:rotate(90deg)}}
+</style>
+<section id="privacy">
+  <div class="wrap">
+    <div class="sec-label" data-i18n="priv.label">// Privacy</div>
+    <h2 data-i18n="priv.h2">Your data never touches our servers.</h2>
+    <p class="section-lede" data-i18n="priv.lede">AG3NT runs on your Mac with your own AI key. Your prompts go straight to your provider — never through us. Memory stays on-device. Zero telemetry of your data.</p>
+    <div class="priv-flow">
+      <div class="priv-box on"><div class="pb-t" data-i18n="priv.b1">Your Mac · AG3NT</div><div class="pb-s" data-i18n="priv.b1s">Memory & business context, on-device</div></div>
+      <div class="priv-arrow"><span data-i18n="priv.key">your own key →</span></div>
+      <div class="priv-box"><div class="pb-t" data-i18n="priv.b2">Your AI provider</div><div class="pb-s" data-i18n="priv.b2s">Claude · GPT · DeepSeek · local</div></div>
+    </div>
+    <div class="priv-never"><span class="x">✕</span> <span data-i18n="priv.never">Perfect Paradox never sees your prompts, your data, or your key.</span></div>
+  </div>
+</section>
+
 <section id="compare">
   <div class="wrap">
     <div class="sec-label" data-i18n="cmp.label">// vs the rest</div>
@@ -379,6 +404,55 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 </section>
 
 <!-- PRICING -->
+<style>
+#calc .calc{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px;border:1px solid var(--line);background:var(--bg)}
+#calc .calc-inputs,#calc .calc-out{padding:34px}
+#calc .calc-out{background:var(--void);border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+#calc .calc-inputs label{display:flex;justify-content:space-between;align-items:baseline;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:22px 0 12px}
+#calc .calc-inputs label:first-child{margin-top:0}
+#calc .calc-inputs output{font-family:'Space Grotesk';font-size:20px;font-weight:600;color:var(--white);letter-spacing:0}
+#calc input[type=range]{width:100%;-webkit-appearance:none;height:3px;background:var(--high);outline:none}
+#calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--mk);cursor:pointer;box-shadow:0 0 0 5px rgba(127,119,221,.18)}
+#calc .calc-row{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line-soft);font-size:15px;color:var(--ink)}
+#calc .calc-row b{font-family:'Space Grotesk';font-size:19px;color:var(--white)}
+#calc .calc-save{margin:22px 0;font-family:'JetBrains Mono';font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+#calc .calc-save span{display:block;font-family:'Space Grotesk';font-size:clamp(38px,5vw,56px);font-weight:700;color:var(--mk);letter-spacing:-.02em;margin-top:6px}
+@media(max-width:720px){#calc .calc{grid-template-columns:1fr}#calc .calc-out{border-left:none;border-top:1px solid var(--line)}}
+</style>
+<section id="calc">
+  <div class="wrap">
+    <div class="sec-label" data-i18n="calc.label">// The math</div>
+    <h2 data-i18n="calc.h2">Stop renting your AI.</h2>
+    <p class="section-lede" data-i18n="calc.lede">Most solo businesses juggle 4–7 AI subscriptions. Here's what that really costs — and what you'd keep with AG3NT (one-time, your own key).</p>
+    <div class="calc">
+      <div class="calc-inputs">
+        <label><span data-i18n="calc.subs">AI subscriptions you pay for</span> <output id="cs-n">4</output></label>
+        <input type="range" id="calc-subs" min="1" max="10" value="4" aria-label="subscriptions">
+        <label><span data-i18n="calc.price">Average per month, each</span> <output id="cs-p">$25</output></label>
+        <input type="range" id="calc-price" min="10" max="100" step="5" value="25" aria-label="price">
+      </div>
+      <div class="calc-out">
+        <div class="calc-row"><span data-i18n="calc.stack">Your AI stack over 2 years</span><b id="calc-stack">$2,400</b></div>
+        <div class="calc-row"><span data-i18n="calc.ag3nt">AG3NT — one-time + your key</span><b>$99</b></div>
+        <div class="calc-save"><span data-i18n="calc.keep">You keep</span><span id="calc-saved">$2,301</span></div>
+        <a class="btn" style="justify-content:center" href="#pricing" data-i18n="calc.cta">Stop renting — get AG3NT</a>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var s=document.getElementById('calc-subs'),p=document.getElementById('calc-price');
+  function f(n){return '$'+n.toLocaleString('en-US');}
+  function u(){var n=+s.value,pr=+p.value,st=n*pr*24;
+    document.getElementById('cs-n').textContent=n;
+    document.getElementById('cs-p').textContent='$'+pr;
+    document.getElementById('calc-stack').textContent=f(st);
+    document.getElementById('calc-saved').textContent=f(Math.max(0,st-99));}
+  s.addEventListener('input',u);p.addEventListener('input',u);u();
+})();
+</script>
+
 <section id="pricing">
   <div class="wrap">
     <div class="sec-label" data-i18n="price.label">// Pricing</div>
