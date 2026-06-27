@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ag3nt.perfectparadox.co.uk/sitemap.xml
