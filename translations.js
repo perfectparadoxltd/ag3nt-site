@@ -62,7 +62,7 @@ window.I18N = {
     "nav.pricing": "Pricing",
     "nav.get": "Get AG3NT",
 
-    "hero.tag": "On-device · <b>Zero telemetry</b> · One-time purchase",
+    "hero.tag": "Cloud AI · <b>Your own key</b> · One-time",
     "hero.h1": "Your AI team.<br><span class=\"s\">On your Mac.</span>",
     "hero.lede": "Not another chatbot. A team of specialist AI assistants that <strong style=\"color:var(--white);font-weight:500\">coordinate with each other</strong>, remember your business, and work on their own — entirely on your Mac. Bring your own key.",
     "hero.download": "Download — free trial",
@@ -258,7 +258,7 @@ window.I18N = {
     "nav.pricing": "Precios",
     "nav.get": "Consigue AG3NT",
 
-    "hero.tag": "En tu dispositivo · <b>Cero telemetría</b> · Pago único",
+    "hero.tag": "IA en la nube · <b>Tu propia clave</b> · Pago único",
     "hero.h1": "Tu equipo de IA.<br><span class=\"s\">En tu Mac.</span>",
     "hero.lede": "No es otro chatbot. Un equipo de asistentes de IA especializados que <strong style=\"color:var(--white);font-weight:500\">se coordinan entre sí</strong>, recuerdan tu negocio y trabajan por su cuenta — todo en tu Mac. Usa tu propia clave.",
     "hero.download": "Descargar — prueba gratis",
@@ -454,7 +454,7 @@ window.I18N = {
     "nav.pricing": "Tarifs",
     "nav.get": "Obtenir AG3NT",
 
-    "hero.tag": "Sur l'appareil · <b>Zéro télémétrie</b> · Achat unique",
+    "hero.tag": "IA cloud · <b>Votre propre clé</b> · Achat unique",
     "hero.h1": "Votre équipe d'IA.<br><span class=\"s\">Sur votre Mac.</span>",
     "hero.lede": "Pas un énième chatbot. Une équipe d'assistants d'IA spécialisés qui <strong style=\"color:var(--white);font-weight:500\">se coordonnent entre eux</strong>, mémorisent votre activité et travaillent seuls — entièrement sur votre Mac. Apportez votre propre clé.",
     "hero.download": "Télécharger — essai gratuit",
@@ -650,7 +650,7 @@ window.I18N = {
     "nav.pricing": "Preise",
     "nav.get": "AG3NT holen",
 
-    "hero.tag": "Auf dem Gerät · <b>Null Telemetrie</b> · Einmalkauf",
+    "hero.tag": "Cloud-KI · <b>Dein eigener Schlüssel</b> · Einmalkauf",
     "hero.h1": "Dein KI-Team.<br><span class=\"s\">Auf deinem Mac.</span>",
     "hero.lede": "Kein weiterer Chatbot. Ein Team spezialisierter KI-Assistenten, die sich <strong style=\"color:var(--white);font-weight:500\">untereinander abstimmen</strong>, sich an dein Geschäft erinnern und eigenständig arbeiten — vollständig auf deinem Mac. Bring deinen eigenen Schlüssel mit.",
     "hero.download": "Herunterladen — kostenlose Testphase",
@@ -846,7 +846,7 @@ window.I18N = {
     "nav.pricing": "Prezzi",
     "nav.get": "Ottieni AG3NT",
 
-    "hero.tag": "Sul dispositivo · <b>Zero telemetria</b> · Acquisto una tantum",
+    "hero.tag": "IA cloud · <b>La tua chiave</b> · Acquisto una tantum",
     "hero.h1": "Il tuo team di IA.<br><span class=\"s\">Sul tuo Mac.</span>",
     "hero.lede": "Non un altro chatbot. Un team di assistenti di IA specializzati che <strong style=\"color:var(--white);font-weight:500\">si coordinano tra loro</strong>, ricordano la tua attività e lavorano da soli — interamente sul tuo Mac. Porta la tua chiave.",
     "hero.download": "Scarica — prova gratuita",
@@ -1042,7 +1042,7 @@ window.I18N = {
     "nav.pricing": "Preços",
     "nav.get": "Obter o AG3NT",
 
-    "hero.tag": "No dispositivo · <b>Zero telemetria</b> · Pagamento único",
+    "hero.tag": "IA na nuvem · <b>A sua chave</b> · Pagamento único",
     "hero.h1": "A sua equipa de IA.<br><span class=\"s\">No seu Mac.</span>",
     "hero.lede": "Não é mais um chatbot. Uma equipa de assistentes de IA especializados que <strong style=\"color:var(--white);font-weight:500\">se coordenam entre si</strong>, se lembram do seu negócio e trabalham sozinhos — inteiramente no seu Mac. Use a sua própria chave.",
     "hero.download": "Descarregar — teste grátis",
@@ -1238,7 +1238,7 @@ window.I18N = {
     "nav.pricing": "価格",
     "nav.get": "AG3NTを入手",
 
-    "hero.tag": "オンデバイス · <b>テレメトリゼロ</b> · 買い切り",
+    "hero.tag": "クラウドAI · <b>自分のキー</b> · 買い切り",
     "hero.h1": "あなたのAIチーム。<br><span class=\"s\">あなたのMacで。</span>",
     "hero.lede": "ただのチャットボットではありません。<strong style=\"color:var(--white);font-weight:500\">互いに連携し</strong>、あなたのビジネスを記憶し、自律的に働く専門AIアシスタントのチーム — すべてあなたのMac上で。自分のキーを使えます。",
     "hero.download": "ダウンロード — 無料トライアル",
@@ -1434,7 +1434,7 @@ window.I18N = {
     "nav.pricing": "定价",
     "nav.get": "获取 AG3NT",
 
-    "hero.tag": "设备端 · <b>零遥测</b> · 一次买断",
+    "hero.tag": "云端 AI · <b>你自己的密钥</b> · 一次买断",
     "hero.h1": "你的 AI 团队。<br><span class=\"s\">在你的 Mac 上。</span>",
     "hero.lede": "不是又一个聊天机器人。一支专业 AI 助手团队，<strong style=\"color:var(--white);font-weight:500\">彼此相互协调</strong>、记住你的业务并自主工作 — 完全在你的 Mac 上。自带密钥。",
     "hero.download": "下载 — 免费试用",

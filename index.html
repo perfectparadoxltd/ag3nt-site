@@ -61,8 +61,10 @@ nav .links a:hover{color:var(--white)}
 .hero{padding:150px 0 80px;text-align:center}
 .tag{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);border:1px solid var(--line);padding:6px 12px;margin-bottom:30px}
 .tag b{color:var(--ink);font-weight:500}
-h1{font-family:'Space Grotesk';font-weight:600;font-size:clamp(44px,7vw,82px);line-height:1.0;letter-spacing:-.02em;color:var(--white);margin-bottom:24px}
+h1{font-family:'Space Grotesk';font-weight:600;font-size:clamp(28px,4.2vw,48px);line-height:1.05;letter-spacing:-.01em;color:var(--white);margin-bottom:24px}
 h1 .s{color:var(--mut)}
+.three{color:#b388e0}
+.hero-name{font-family:'Space Grotesk';font-weight:700;font-size:clamp(64px,10vw,128px);letter-spacing:.03em;line-height:1;color:var(--white);margin-bottom:16px}
 .lede{font-size:19px;line-height:1.6;color:var(--ink);max-width:600px;margin:0 auto 34px}
 .cta-row{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
 .cta-note{font-family:'JetBrains Mono';font-size:11px;color:var(--mut);margin-top:18px}
@@ -209,7 +211,7 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 
 <div class="page">
 <nav>
-  <div class="brand">AG3NT</div>
+  <div class="brand">AG<span class="three">3</span>NT</div>
   <div class="links">
     <a href="#work" data-i18n="nav.work">See it work</a>
     <a href="#features" data-i18n="nav.features">Features</a>
@@ -221,7 +223,8 @@ footer a{color:var(--mut);text-decoration:none}footer a:hover{color:var(--white)
 
 <header class="hero">
   <div class="wrap">
-    <div class="tag"><span style="width:6px;height:6px;background:#1D9E75;display:inline-block"></span> <span data-i18n="hero.tag">On-device · <b>Zero telemetry</b> · One-time purchase</span></div>
+    <div class="tag"><span style="width:6px;height:6px;background:#1D9E75;display:inline-block"></span> <span data-i18n="hero.tag">Cloud AI · <b>Your own key</b> · One-time</span></div>
+    <div class="hero-name">AG<span class="three">3</span>NT</div>
     <h1 data-i18n="hero.h1">Your AI team.<br><span class="s">On your Mac.</span></h1>
     <p class="lede" data-i18n="hero.lede">Not another chatbot. A team of specialist AI assistants that <strong style="color:var(--white);font-weight:500">coordinate with each other</strong>, remember your business, and work on their own — entirely on your Mac. Bring your own key.</p>
     <div class="cta-row">
